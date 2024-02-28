@@ -4,12 +4,12 @@ import TaskApi from "./models/bridge.js";
 
 function App() {
   // TODO: Read tasks
-  const tasks = TaskAPI();
-  const {setEditedTasks, editedTasks} = useState(getAllTasks());
+  const db = TaskAPI();
+  const {setEditedTasks, editedTasks} = useState(db.getAllTasks());
   
   const handleUpdate = (updatedTask) => {
     console.log("handleUpdate", updatedTask);
-    // TODO: update tasks, editedTasks
+    setEditedTasks([...editedTasks, updatedTask]);
     // tasks.updateTask(updatedTask.id, updatedTask)
   };
 
@@ -17,7 +17,14 @@ function App() {
     console.log("handleCreate", updatedTask);
     // TODO: update tasks, editedTasks
     // tasks.createTask(updatedTask);
-  
+  };
+
+  const handleDelete = (updatedTask) => {
+    console.log("deleteCreate", updatedTask);
+    // TODO: update tasks, editedTasks
+    // tasks.deleteTask(updatedTask.id);
+  };
+    
   return (
     <div>
       <h1>Product Backlog</h1>
