@@ -9,8 +9,14 @@ function App() {
   
   const handleUpdate = (updatedTask) => {
     console.log("handleUpdate", updatedTask);
+    // TODO: update tasks, editedTasks
     // tasks.updateTask(updatedTask.id, updatedTask)
   };
+
+  const handleCreate = (updatedTask) => {
+    console.log("handleCreate", updatedTask);
+    // TODO: update tasks, editedTasks
+    // tasks.createTask(updatedTask);
   
   return (
     <div>
