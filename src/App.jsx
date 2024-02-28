@@ -22,9 +22,6 @@ function App() {
   fetchTasks();
 }, []);
   
-  // TODO: Read tasks
-  const db = TaskAPI();
-  const {setEditedTasks, editedTasks} = useState(db.getAllTasks());
   
   const handleUpdate = (updatedTask) => {
     console.log("handleUpdate", updatedTask);
