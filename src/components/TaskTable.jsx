@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Task from './Task';
 
+
 const tableStyle = {
   width: '100%',
   tableLayout: 'fixed'
@@ -25,13 +26,19 @@ const TaskTable = ({  tasks,
                     handleMove }) => {
 
   const [editId, setEditId] = useState(null);
+  const [editedTasks, setEditedTasks] = useState(tasks);
     
   const handleEdit = (myTask) => {
     setEditId(myTask.id);
   };
   
   const onCreate = (myTask) => {
+    const newTasks = editedTasks.push({pos: 0});
     setEditId(0);
+    // TODO:Test 
+  };
+
+  const onCancelCreateTask = () => {
     // TODO 
   };
 
@@ -61,7 +68,7 @@ const TaskTable = ({  tasks,
             </tr>
             </thead>
             <tbody>
-            {tasks.map(myTask => (
+            {editedTasks.push({pos.map(myTask => (
                 <Task 
                   myTask={myTask} 
                   editable={editId}
