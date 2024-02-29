@@ -29,6 +29,11 @@ const TaskTable = ({  tasks,
   const handleEdit = (myTask) => {
     setEditId(myTask.id);
   };
+  
+  const onCreate = (myTask) => {
+    setEditId(0);
+    // TODO 
+  };
 
     return (
       <div className="table-responsive-sm">
