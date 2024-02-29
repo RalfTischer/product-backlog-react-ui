@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import Task from './Task';
 
 const tableStyle = {
-    width: '100%',
-    tableLayout: 'fixed'
-  }
+  width: '100%',
+  tableLayout: 'fixed'
+}
   
-  const tableColSmall = {
-    width: '10%'
-  }
+const tableColSmall = {
+  width: '10%'
+}
   
-  const tableColMedium = {
-    width: '20%'
-  }
+const tableColMedium = {
+  width: '20%'
+}
   
-  const tableColBig = {
-    width: '30%'
-  }
+const tableColBig = {
+  width: '30%'
+}
 
-  const TaskTable = ({  tasks, 
-                        handleCreate,
-                        handleUpdate,
-                        handleDelete,
-                        handleMove }) => {
+const TaskTable = ({  tasks, 
+                    handleCreate,
+                    handleUpdate,
+                    handleDelete,
+                    handleMove }) => {
 
-    const [editId, setEditId] = useState(null);
+  const [editId, setEditId] = useState(null);
     
-    const handleEdit = (myTask) => {
-      setEditId(myTask.id);
-    };
+  const handleEdit = (myTask) => {
+    setEditId(myTask.id);
+  };
 
     return (
       <div className="table-responsive-sm">
