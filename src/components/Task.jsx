@@ -3,24 +3,32 @@ import TaskEdit from './TaskEdit';
 import TaskDislay from './TaskDisplay';
 
 const Task = ({ myTask,
-                editable
-}) => {
+                editable,
+                handleEdit,
+                handleCreate,
+                handleUpdate,
+                handleDelete,
+                handleMove }) => {
+
   if (!myTask) {
     return null;
   }
 
-  // const {id, task} = myTask;
-
-  if (editable) {
+  if (editable === myTask.id) {
     return <TaskEdit 
-            myTask={ myTask }
+            myTask={myTask}
+            handleCreate={handleCreate}
+            handleUpdate={handleUpdate}
+            setEditable={setEditable}
     />
   } else {
     return <TaskDislay
-            myTask={ myTask }
+            myTask={myTask}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+            handleEdit={handleEdit}
     />
   }
-
 };
 
 export default Task;

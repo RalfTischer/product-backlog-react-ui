@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Task from './Task';
 
 const tableStyle = {
@@ -18,7 +18,18 @@ const tableStyle = {
     width: '30%'
   }
 
-  const TaskTable = ({ tasks }) => {
+  const TaskTable = ({  tasks, 
+                        handleCreate,
+                        handleUpdate,
+                        handleDelete,
+                        handleMove }) => {
+
+    const [editId, setEditId] = useState(null);
+    
+    const handleEdit = (myTask) => {
+      setEditId(myTask.id);
+    };
+
     return (
       <div className="table-responsive-sm">
         <table style={tableStyle} className="table table-dark table-hover w-100">
@@ -45,10 +56,15 @@ const tableStyle = {
             </tr>
             </thead>
             <tbody>
-            {tasks.map(mytask => (
+            {tasks.map(myTask => (
                 <Task 
-                  mytask={ mytask } 
-                  editable = { false }
+                  myTask={myTask} 
+                  editable={editId}
+                  handleEdit={handleEdit}
+                  handleCreate={handleCreate}
+                  handleUpdate={handleUpdate}
+                  handleDelete={handleDelete}
+                  handleMove={handleMove}
                 />
             ))}
             </tbody>
