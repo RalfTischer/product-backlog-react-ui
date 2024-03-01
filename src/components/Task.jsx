@@ -5,8 +5,8 @@ import TaskDislay from './TaskDisplay';
 const Task = ({ myTask,
                 editable,
                 handleEdit,
-                handleCreate,
-                handleUpdate,
+                handleCancelEdit,
+                handleSave,
                 handleDelete,
                 handleMove }) => {
 
@@ -14,12 +14,11 @@ const Task = ({ myTask,
     return null;
   }
 
-  if (editable === myTask.id) {
+  if (editable) {
     return <TaskEdit 
             myTask={myTask}
-            handleCreate={handleCreate}
-            handleUpdate={handleUpdate}
-            setEditable={setEditable}
+            handleSave={handleSave}
+            handleCancelEdit={handleCancelEdit}
     />
   } else {
     return <TaskDislay
@@ -27,6 +26,7 @@ const Task = ({ myTask,
             handleDelete={handleDelete}
             handleMove={handleMove}
             handleEdit={handleEdit}
+            handleSave={handleSave}
     />
   }
 };

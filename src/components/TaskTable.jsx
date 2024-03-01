@@ -14,35 +14,43 @@ const TaskTable = ({  tasks,
                       handleDelete,
                       handleMove }) => {
 
-  const [editId, setEditId] = useState(null);
-  const [editedTasks, setEditedTasks] = useState([]);
-                      
-  useEffect(() => {
-    setEditedTasks([...tasks]); // Initialize editedTasks with a deep copy of tasks
-  }, [tasks]);
-  
-  const handleEdit = (myTask) => {
-    //id = myTask.id;
-    // Cancel current edit
-    if (editId) {
-      const index  = editedTasks.findIndex(obj => obj.id === myTask.id);  // Index of task in edit mode
-      handleCancelEdit(editedTasks[index])
-    }
+  const [editId, setEditId] = useState(-1);
 
+  const handleEdit = (myTask) => {
+    if (editId >= 0) {
+      // Cancel current edit 
+      const index  = tasks.findIndex(obj => obj.id === myTask.id);  // Index of task in edit mode
+      handleCancelEdit(tasks[index]);
+    }
     setEditId(myTask.id);
   };
   
-  const handleCancelEdit = (myTask) => {
-    // TODO 
-    setEditedTasks(tasks);
-    setEditId(null);  
+  const handleCancelEdit = () => {
+    // Delete task with temporary id = 0
+    const index  = tasks.findIndex(obj => obj.id === 0);
+    if (index > -1) {
+      tasks.splice(index, 1); 
+    }
+    setEditId(-1);
   };
-  const onCreate = (myTask) => {
-    const newTasks = editedTasks.push({id: 0});   // New task with temporary id = 0
-    setEditId(0);
-    // TODO:Test 
-  };
+  
+  const handleSave = (myTask) => {
+    console.log("handling Save with", myTask);
+    if (myTask.id === 0) {
+      // Create new task
+      handleCreate(myTask);
+      handleCancelEdit(myTask);
+    } else {
+      // Update existing task
+      handleUpdate(myTask);
+      handleCancelEdit(myTask);
+    }
+  }
 
+  const onCreate = () => {
+    tasks.push({id: 0});
+    setEditId(0);
+  };
 
   return (
     <div className="table-responsive-sm">
@@ -65,18 +73,19 @@ const TaskTable = ({  tasks,
               <th>Time</th>
               <th>Status</th>
               <th>
-              Actions <button className="btn btn-sm btn-secondary" >*</button>
+              Actions <button className="btn btn-sm btn-secondary" onClick={onCreate}>*</button>
               </th>
           </tr>
           </thead>
           <tbody>
-          {editedTasks.map(myTask => (
+          {tasks.map(myTask => (
               <Task 
                 myTask={myTask} 
-                editable={editId}
+                editable={editId === myTask.id}
                 handleEdit={handleEdit}
+                handleSave={handleSave}
+                handleCancelEdit={handleCancelEdit}
                 handleCreate={handleCreate}
-                handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleMove={handleMove}
               />
