@@ -58,4 +58,14 @@
     padding: 0;
   }
   
-  
+.col-small {
+    width: 10%;
+}
+
+.col-medium {
+    width: 20%;
+}
+
+.col-big {
+    width: 30%;
+}
