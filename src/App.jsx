@@ -49,6 +49,7 @@ function App() {
         db.updateTask(myTask.id, myTask);
     }
   }
+  
   const handleDelete = (myTask) => {
     if (window.confirm("Really delete task " + myTask.id + " [" + myTask.task +"]?")) {
       db = new TaskAPI();
