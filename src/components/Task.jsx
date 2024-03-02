@@ -4,11 +4,12 @@ import TaskDislay from './TaskDisplay';
 
 const Task = ({ myTask,
                 editable,
+                handleDelete,
+                handleMove,
                 handleEdit,
                 handleCancelEdit,
-                handleSave,
-                handleDelete,
-                handleMove }) => {
+                handleSave
+                 }) => {
 
   if (!myTask) {
     return null;
@@ -26,7 +27,6 @@ const Task = ({ myTask,
             handleDelete={handleDelete}
             handleMove={handleMove}
             handleEdit={handleEdit}
-            handleSave={handleSave}
     />
   }
 };

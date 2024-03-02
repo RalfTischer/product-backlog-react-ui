@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+// Hold editedTask
+
 const inputStyle = {
   width: '100%',
   boxSizing: 'border-box'

@@ -27,15 +27,19 @@ function App() {
   }, []);
   
   
-  const handleCreate = (myTask) => {
+  const handleCreate = async (myTask) => {
     db = new TaskAPI();
-    console.log("handleCreate with myTask", myTask);
-    console.log("db", db);
-    const updatedTasks = tasks;
-    updatedTasks.push(myTask);
-    console.log("updated tasks", updatedTasks);
-    db.createTask(myTask);
+    const updatedTasks = [...tasks];  // Create a copy of tasks
+    const newId = await db.createTask(myTask);  // Save and get new id
+    console.log("new id:", newId);
+
+    let newTask ={ ... myTask};       // Create a copy of the new task
+    newTask.id = newId;               // Set new id
+    console.log("newTask", newTask);
+    
+    updatedTasks.push(newTask);
     setTasks(updatedTasks);
+    console.log("updated tasks", updatedTasks);
   };
 
   const handleUpdate = (myTask) => {

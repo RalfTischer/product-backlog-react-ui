@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Task from './Task';
 
-// Hold: editedTask, editId
+// Hold: editId
 
 const tableStyle = {
   width: '100%',
@@ -38,12 +38,12 @@ const TaskTable = ({  tasks,
     console.log("handling Save with", myTask);
     if (myTask.id === 0) {
       // Create new task
-      handleCreate(myTask);
       handleCancelEdit(myTask);
+      handleCreate(myTask);
     } else {
       // Update existing task
-      handleUpdate(myTask);
       handleCancelEdit(myTask);
+      handleUpdate(myTask);
     }
   }
 
@@ -82,12 +82,11 @@ const TaskTable = ({  tasks,
               <Task 
                 myTask={myTask} 
                 editable={editId === myTask.id}
-                handleEdit={handleEdit}
-                handleSave={handleSave}
-                handleCancelEdit={handleCancelEdit}
-                handleCreate={handleCreate}
                 handleDelete={handleDelete}
                 handleMove={handleMove}
+                handleEdit={handleEdit}
+                handleCancelEdit={handleCancelEdit}
+                handleSave={handleSave}
               />
           ))}
           </tbody>
