@@ -6,8 +6,12 @@ class TaskAPI {
         this.baseURL = baseURL;
     }
 
-    async getAllTasks() {
-        const response = await fetch(`${this.baseURL}/tasks`, {
+    async getAllTasks(sortBy = null ) {
+        let q_sortBy = "";
+        if (sortBy) {
+            q_sortBy = "?sort_by=" + sortBy;
+        };
+        const response = await fetch(`${this.baseURL}/tasks${q_sortBy}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
