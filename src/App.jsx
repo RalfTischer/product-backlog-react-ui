@@ -80,10 +80,16 @@ function App() {
     console.log("handleMove", myTask, "by positions", positions);
 
     let updatedTasks = [...tasks];
+
+    // Shift position of myTask in array
     const currentIndex = updatedTasks.findIndex(task => task.id === myTask.id);
     if (currentIndex !== -1) {
-      const newPos = updatedTasks[currentIndex].pos + positions;
-      if ((positions === 0) || (newPos <= 0)) {
+      if (positions === 0) {
+        const newPos = 0;   // Set newTask to first position 
+      } else {
+        const newPos = updatedTasks[currentIndex].pos + positions;
+      } 
+      if (newPos <= 0) {
           updatedTasks[currentIndex].pos = 1;
       } else if (newPos > updatedTasks.length) {
           updatedTasks[currentIndex].pos = updatedTasks.length;
