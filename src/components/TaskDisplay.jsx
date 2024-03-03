@@ -37,21 +37,20 @@ const TaskDisplay = ({  myKey,
 
   return (
     <>
-      <tr key={myKey} >
-      <td>{myTask.id} </td>
-      <td>{myTask.pos} </td>
-      <td>{myTask.prio} </td>
-      <td>{myTask.task} </td>
-      <td>{myTask.time} </td>
-      <td>{myTask.status} </td>
-      <td>
-        <button className="btn btn-sm btn-secondary" onClick={onEdit}>|...|</button>
-        <button className="btn btn-sm btn-secondary" onClick={onDelete}>|←</button>
-        <button className="btn btn-sm btn-secondary" onClick={onDownwards}>▼</button>
-        <button className="btn btn-sm btn-secondary" onClick={onUpwards}>▲</button>
-        <button className="btn btn-sm btn-secondary" onClick={onToTop}>▲▲</button>
-
-      </td>
+      <tr key={myKey} onDoubleClick={onEdit}>
+        <td>{myTask.id} </td>
+        <td>{myTask.pos} </td>
+        <td>{myTask.prio} </td>
+        <td>{myTask.task} </td>
+        <td>{myTask.time} </td>
+        <td>{myTask.status} </td>
+        <td>
+          <button className="btn btn-sm btn-secondary" onClick={onEdit}>|...|</button>
+          <button className="btn btn-sm btn-secondary" onClick={onDelete}>|←</button>
+          <button className="btn btn-sm btn-secondary" onClick={onDownwards}>▼</button>
+          <button className="btn btn-sm btn-secondary" onClick={onUpwards}>▲</button>
+          <button className="btn btn-sm btn-secondary" onClick={onToTop}>▲▲</button>
+        </td>
       </tr>
     </>
   ); 
