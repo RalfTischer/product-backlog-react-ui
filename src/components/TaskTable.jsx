@@ -35,7 +35,6 @@ const TaskTable = ({  tasks,
   };
   
   const handleSave = (myTask) => {
-    console.log("handling Save with", myTask);
     if (myTask.id === 0) {
       // Create new task
       handleCancelEdit(myTask);
@@ -80,6 +79,7 @@ const TaskTable = ({  tasks,
           <tbody>
           {tasks.map(myTask => (
               <Task 
+                key={myTask.id}
                 myTask={myTask} 
                 editable={editId === myTask.id}
                 handleDelete={handleDelete}

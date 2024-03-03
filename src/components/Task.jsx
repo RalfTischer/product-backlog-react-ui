@@ -2,7 +2,8 @@ import React from 'react';
 import TaskEdit from './TaskEdit';
 import TaskDislay from './TaskDisplay';
 
-const Task = ({ myTask,
+const Task = ({ myKey,
+                myTask,
                 editable,
                 handleDelete,
                 handleMove,
@@ -17,12 +18,14 @@ const Task = ({ myTask,
 
   if (editable) {
     return <TaskEdit 
+            myKey={myKey}
             myTask={myTask}
             handleSave={handleSave}
             handleCancelEdit={handleCancelEdit}
     />
   } else {
     return <TaskDislay
+            myKey={myKey}
             myTask={myTask}
             handleDelete={handleDelete}
             handleMove={handleMove}

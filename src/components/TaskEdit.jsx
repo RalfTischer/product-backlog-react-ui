@@ -7,7 +7,8 @@ const inputStyle = {
   boxSizing: 'border-box'
 }
 
-const TaskEdit = ({ myTask,
+const TaskEdit = ({ myKey,
+                    myTask,
                     handleSave,
                     handleCancelEdit }) => {
 
@@ -30,7 +31,7 @@ const TaskEdit = ({ myTask,
 
   return (
     <>
-      <tr key={editedTask.id} >
+      <tr key={myKey} >
       <td>{editedTask.id}</td>
       <td><input name="pos" style={inputStyle} type="text" value={editedTask.pos} onChange={handleInputChange} /></td>
       <td><input name="prio" style={inputStyle} type="text" value={editedTask.prio} onChange={handleInputChange} /></td>

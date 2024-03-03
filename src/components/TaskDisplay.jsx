@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TaskDisplay = ({  myTask,
+const TaskDisplay = ({  myKey,
+                        myTask,
                         handleDelete,
                         handleMove, 
                         handleEdit }) => {
@@ -31,12 +32,12 @@ const TaskDisplay = ({  myTask,
   const onToTop = () => {
     // ToTop clicked
     console.log("ToTop clicked.");
-    handleMove(myTask, 0);
+    handleMove(myTask, -999999);
   };
 
   return (
     <>
-      <tr key={myTask.id} >
+      <tr key={myKey} >
       <td>{myTask.id} </td>
       <td>{myTask.pos} </td>
       <td>{myTask.prio} </td>
