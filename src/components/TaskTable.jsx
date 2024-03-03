@@ -57,7 +57,6 @@ const TaskTable = ({  tasks,
           <colgroup>
           <col className="col-small" />
           <col className="col-small" />
-          <col className="col-small" />
           <col className="col-big" />
           <col className="col-small" />
           <col className="col-small" />
@@ -65,7 +64,6 @@ const TaskTable = ({  tasks,
           </colgroup>
           <thead>
           <tr>
-              <th>ID</th>
               <th>Pos</th>
               <th>Prio</th>
               <th>Task</th>

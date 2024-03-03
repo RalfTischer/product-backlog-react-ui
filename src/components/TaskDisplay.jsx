@@ -38,7 +38,6 @@ const TaskDisplay = ({  myKey,
   return (
     <>
       <tr key={myKey} onDoubleClick={onEdit}>
-        <td>{myTask.id} </td>
         <td>{myTask.pos} </td>
         <td>{myTask.prio} </td>
         <td>{myTask.task} </td>

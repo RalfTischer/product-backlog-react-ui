@@ -31,8 +31,7 @@ const TaskEdit = ({ myKey,
 
   return (
     <>
-      <tr key={myKey} >
-        <td>{editedTask.id}</td>
+      <tr key={myKey} onSubmit={onSave}>
         <td><input name="pos" style={inputStyle} type="text" value={editedTask.pos} onChange={handleInputChange} /></td>
         <td><input name="prio" style={inputStyle} type="text" value={editedTask.prio} onChange={handleInputChange} /></td>
         <td><input name="task" style={inputStyle} type="text" value={editedTask.task} onChange={handleInputChange} /></td>
