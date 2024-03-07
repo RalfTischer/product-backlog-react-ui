@@ -39,7 +39,6 @@ Deploy project tp GitHub Pages to the `gh-pages` branch of this repository.
  $ npm run deploy -- -m "Deploy React app to GitHub Pages"
  ```
 
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\

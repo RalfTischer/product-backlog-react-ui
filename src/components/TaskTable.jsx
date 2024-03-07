@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import Task from './Task';
 
 // Hold: editId
-
-const tableStyle = {
-  width: '100%',
-  tableLayout: 'fixed'
-}
   
 const TaskTable = ({  tasks, 
                       handleCreate,
@@ -52,8 +47,8 @@ const TaskTable = ({  tasks,
   };
 
   return (
-    <div className="table-responsive-sm">
-      <table style={tableStyle} className="table table-dark table-hover w-100">
+    <div className="table-responsive">
+      <table className="table task-table table-dark table-hover w-100">
           <colgroup>
           <col className="col-small" />
           <col className="col-small" />
@@ -62,7 +57,7 @@ const TaskTable = ({  tasks,
           <col className="col-small" />
           <col className="col-medium" />
           </colgroup>
-          <thead>
+          <thead className="sticky-header">
           <tr>
               <th>Pos</th>
               <th>Prio</th>
