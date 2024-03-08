@@ -3,10 +3,10 @@
 React user interface to administrate simplified product backlogs.
 Both application and README.md documentation are _work in progress_.
 
-## Link
+## Links
 
-* Product Backlog [React app](https://ralftischer.github.io/product-backlog-react-ui/)
-* product-backlog-flask-api [GitHub repository](https://github.com/RalfTischer/product-backlog-flask-api)
+* Product Backlog UI on GitHub Pages: [https://ralftischer.github.io/product-backlog-react-ui/](https://ralftischer.github.io/product-backlog-react-ui/)
+* Product Backlog Backend GitHub (private) repository: [https://github.com/RalfTischer/product-backlog-flask-api](https://github.com/RalfTischer/product-backlog-flask-api)
 
 ## Technical Background
 
