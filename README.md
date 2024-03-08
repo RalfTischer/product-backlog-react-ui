@@ -1,6 +1,6 @@
 # Product Backlog React UI
 
-React user interface to administrate simplified product backlogs.
+React user interface to work with simplified product backlogs.
 Both application and README.md documentation are _work in progress_.
 
 ## Links
