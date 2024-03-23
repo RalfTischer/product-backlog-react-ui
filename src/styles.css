@@ -59,28 +59,12 @@ body {
   top: 0;
 }
   
-/*
-.col-small {
-    min-width: 1rem;
-}
-
-.col-medium {
-    min-width: 8rem;
-}
-
-.col-big {
-    width: auto;
-    min-width: 20rem;
-}
-*/
-
 .task-table {
   width: 100%;
   height: 100px; 
 }
 
-/* styles.css */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 760px) {
   .table-responsive {
     overflow-x: auto;
   }
