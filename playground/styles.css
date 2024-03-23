@@ -1,0 +1,76 @@
+.table-wrapper {
+    width: 100%;
+    /* max-width: 500px; */
+    overflow-x: auto;
+  }
+
+
+.myTable {
+    border-collapse: collapse;
+    color: darkblue;
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid red;
+    }
+    th {
+        background-color: #4caf50;
+        color: white;
+      }
+      /* Fixed width for w2nd column */
+      td:nth-child(2) {
+        min-width: 300px;
+        max-width: 300px;
+    }
+}
+
+/* style.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 600px) {
+    .myTable{
+        thead {
+            display: none;
+        }
+
+        tbody, tr, td {
+            display: block;
+            width: 100%;
+        }
+
+        td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+        td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+}
+

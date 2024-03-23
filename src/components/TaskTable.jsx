@@ -84,7 +84,7 @@ const TaskTable = ({  tasks,
           ))}
           </tbody>
       </table>
-      </div>
+    </div>
   )
 };
 
