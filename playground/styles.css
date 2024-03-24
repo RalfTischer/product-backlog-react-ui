@@ -1,26 +1,47 @@
 
 .table-wrapper {
     width: 100%;
-  
     overflow-x: auto;
   }
 
-
 .myTable {
-    .table-header {
-        display: table-caption;
-        font-weight: bold;
-        background-color: aquamarine;
-        display: inline-block;
-    }
-    .table-cell {
-        display: inline;
-    }
-    .myTable .table-bg {
-        display: inline-block;
-        padding: 10px;
-    }
+    display: table;
+    width: 100%;
 }
+
+.myTable .table-header {
+    background-color: aquamarine;
+}
+
+.myTable .table-main {
+    display: table-row;
+    width: 100%;
+}
+
+.myTable .table-sub {
+    display: table-row;
+    width: 100%;
+}
+
+.myTable .table-cell {
+    border: solid 1px;
+    display: table-cell;
+}
+
+.myTable .table-main > .table-cell:nth-child(1) {
+    width: 20%;
+}
+
+.myTable .table-main > .table-cell:nth-child(2) {
+    width: 80%;
+}
+
+.myTable .table-sub > .table-cell {
+    width: 20%;
+}
+
+
+
 
 @media (min-width: 600px) {
     .myTable .table-header {
@@ -31,10 +52,5 @@
     .myTable .table-cell {
         display: inline-block;
         padding: 10px;
-    }
-    .myTable .table-bg {
-        display: inline-block;
-        padding: 10px;
-        flex: 1;
     }
 }
