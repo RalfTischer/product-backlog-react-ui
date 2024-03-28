@@ -36,32 +36,29 @@ const TaskDisplay = ({  myKey,
   };
 
   return (
-  <div class="tasks tasks-caption">
-    <div class="task-card" key={myKey} onDoubleClick={onEdit}>
-      <div class="task-info">
-        <div class="task-info-main">
-          <div class="task-cell task-id">{myKey}</div>
-          <div class="task-cell task-task">{myTask.task}</div>
+    <div key={myKey} onDoubleClick={onEdit}>
+      <div className="task-info">
+        <div className="task-info-main">
+          <div className="task-cell task-task">{myTask.task}</div>
         </div>
-        <div class="task-info-sub">
-          <div class="task-cell task-pos">{myTask.pos}</div>
-          <div class="task-cell task-prio">{myTask.prio}</div>
-          <div class="task-cell task-time">{myTask.time}</div>
-          <div class="task-cell task-status">{myTask.status}</div>
-          <div class="task-cell task-actions"><button>&#9776;</button></div>
+        <div className="task-info-sub">
+          <div className="task-cell task-pos">{myTask.pos}</div>
+          <div className="task-cell task-prio">{myTask.prio}</div>
+          <div className="task-cell task-time">{myTask.time}</div>
+          <div className="task-cell task-status">{myTask.status}</div>
+          <div className="task-cell task-actions"><button>&#9776;</button></div>
         </div>
       </div>
-      <div class="task-cell task-action-cell">
-        <div class="task-action">
-          <button class="task-button" onClick={onEdit}>|...|</button>
-          <button class="task-button" onClick={onDelete}>|←</button>
-          <button class="task-button" onClick={onDownwards}>▼</button>
-          <button class="task-button" onClick={onUpwards}>▲</button>
-          <button class="task-button" onClick={onToTop}>▲▲</button>
+      <div className="task-cell task-action-cell">
+        <div className="task-action">
+          <button className="task-button" onClick={onEdit}>|...|</button>
+          <button className="task-button" onClick={onDelete}>|←</button>
+          <button className="task-button" onClick={onDownwards}>▼</button>
+          <button className="task-button" onClick={onUpwards}>▲</button>
+          <button className="task-button" onClick={onToTop}>▲▲</button>
         </div>
       </div>
     </div>
-  </div>
   )
 
   /*

@@ -47,42 +47,41 @@ const TaskTable = ({  tasks,
   };
 
   return (
-    <div class="tasks tasks-caption">
-      <div class="tasks tasks-caption">
-        <div class="task-card">
-          <div class="task-info">
-            <div class="task-info-main">
-              <div class="task-cell task-id">ID</div>
-              <div class="task-cell task-task">Task</div>
-            </div>
-            <div class="task-info-sub">
-              <div class="task-cell task-pos">Pos</div>
-              <div class="task-cell task-prio">Prio</div>
-              <div class="task-cell task-time">Time</div>
-              <div class="task-cell task-status">Status</div>
-              <div class="task-cell task-actions"><button>&#9776;</button></div>
-            </div>
+    <div className="tasks">
+      <div className="task-card tasks-caption">
+        <div className="task-info">
+          <div className="task-info-main">
+            <div className="task-cell task-task">Task</div>
           </div>
-          <div class="task-cell task-action-cell">
-            <div class="task-action">
-
-            </div>
+          <div className="task-info-sub">
+            <div className="task-cell task-pos">Pos</div>
+            <div className="task-cell task-prio">Prio</div>
+            <div className="task-cell task-time">Time</div>
+            <div className="task-cell task-status">Status</div>
+            <div className="task-cell task-actions"><button className="task-button" onClick={onCreate}>*</button></div>
+          </div>
+        </div>
+        <div className="task-cell task-action-cell">
+          <div className="task-action">
+            <button className="task-button" onClick={onCreate}>*</button>
           </div>
         </div>
       </div>
 
       {tasks.map(myTask => (
-              <Task 
-                key={myTask.id}
-                myTask={myTask} 
-                editable={editId === myTask.id}
-                handleDelete={handleDelete}
-                handleMove={handleMove}
-                handleEdit={handleEdit}
-                handleCancelEdit={handleCancelEdit}
-                handleSave={handleSave}
-              />
-          ))}
+        <div className="task-card">
+          <Task 
+            key={myTask.id}
+            myTask={myTask} 
+            editable={editId === myTask.id}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+            handleEdit={handleEdit}
+            handleCancelEdit={handleCancelEdit}
+            handleSave={handleSave}
+          />
+        </div>
+      ))}
     </div>
   )
 
