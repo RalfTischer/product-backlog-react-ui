@@ -36,6 +36,36 @@ const TaskDisplay = ({  myKey,
   };
 
   return (
+  <div class="tasks tasks-caption">
+    <div class="task-card" key={myKey} onDoubleClick={onEdit}>
+      <div class="task-info">
+        <div class="task-info-main">
+          <div class="task-cell task-id">{myKey}</div>
+          <div class="task-cell task-task">{myTask.task}</div>
+        </div>
+        <div class="task-info-sub">
+          <div class="task-cell task-pos">{myTask.pos}</div>
+          <div class="task-cell task-prio">{myTask.prio}</div>
+          <div class="task-cell task-time">{myTask.time}</div>
+          <div class="task-cell task-status">{myTask.status}</div>
+          <div class="task-cell task-actions"><button>&#9776;</button></div>
+        </div>
+      </div>
+      <div class="task-cell task-action-cell">
+        <div class="task-action">
+          <button class="task-button" onClick={onEdit}>|...|</button>
+          <button class="task-button" onClick={onDelete}>|←</button>
+          <button class="task-button" onClick={onDownwards}>▼</button>
+          <button class="task-button" onClick={onUpwards}>▲</button>
+          <button class="task-button" onClick={onToTop}>▲▲</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  )
+
+  /*
+  return (
     <>
       <tr key={myKey} onDoubleClick={onEdit}>
         <td>{myTask.pos} </td>
@@ -52,7 +82,8 @@ const TaskDisplay = ({  myKey,
         </td>
       </tr>
     </>
-  ); 
+  );
+  */ 
 };
 
 export default TaskDisplay;

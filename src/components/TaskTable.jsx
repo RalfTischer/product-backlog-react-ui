@@ -47,6 +47,48 @@ const TaskTable = ({  tasks,
   };
 
   return (
+    <div class="tasks tasks-caption">
+      <div class="tasks tasks-caption">
+        <div class="task-card">
+          <div class="task-info">
+            <div class="task-info-main">
+              <div class="task-cell task-id">ID</div>
+              <div class="task-cell task-task">Task</div>
+            </div>
+            <div class="task-info-sub">
+              <div class="task-cell task-pos">Pos</div>
+              <div class="task-cell task-prio">Prio</div>
+              <div class="task-cell task-time">Time</div>
+              <div class="task-cell task-status">Status</div>
+              <div class="task-cell task-actions"><button>&#9776;</button></div>
+            </div>
+          </div>
+          <div class="task-cell task-action-cell">
+            <div class="task-action">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {tasks.map(myTask => (
+              <Task 
+                key={myTask.id}
+                myTask={myTask} 
+                editable={editId === myTask.id}
+                handleDelete={handleDelete}
+                handleMove={handleMove}
+                handleEdit={handleEdit}
+                handleCancelEdit={handleCancelEdit}
+                handleSave={handleSave}
+              />
+          ))}
+    </div>
+  )
+
+
+  /*
+  return (
     <div className="table-responsive">
       <table className="table task-table table-dark table-hover w-100">
           <colgroup>
@@ -86,6 +128,7 @@ const TaskTable = ({  tasks,
       </table>
     </div>
   )
+  */
 };
 
 export default TaskTable;

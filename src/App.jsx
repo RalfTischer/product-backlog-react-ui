@@ -102,7 +102,6 @@ function App() {
     
   return (
     <div>
-      <h1>Product Backlog</h1>
       <TaskTable 
         tasks={tasks}
         handleCreate={handleCreate}

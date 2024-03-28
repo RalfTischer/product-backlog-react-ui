@@ -1,95 +1,181 @@
-* {
-    box-sizing: border-box;
-  }
-  
-body {
-  background-color: black;
-  color: lightgrey;
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+/*******************/
+/* Base definition */
+/*******************/
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+/* Task-Card */
+.task-card {
+  align-items: center;
+  justify-content: space-between;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
-}
-
-.sticky-header {
-  position: sticky;
-  top: 0;
-}
-  
-.task-table {
+.task-line-caption {
+  border-width: 2px;
   width: 100%;
-  height: 100px; 
 }
 
-@media only screen and (max-width: 760px) {
-  .table-responsive {
-    overflow-x: auto;
+.task-line {
+  border-width: 0.1px;
+  width: 100%;
+}
+
+.tasks {
+  background-color: rgb(239, 230, 220);
+  width: 100%
+}
+
+.tasks-caption {
+  font-weight: bold;
+  position: sticky;
+  top: 0px;
+}
+
+.tasks-caption .task-action-cell {
+  display: none;
+}
+
+.task-cell {
+  display: table-cell;
+  padding: 0.4em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.task-id, .task-task {
+  text-align: left;
+}
+
+.task-button {
+  display: table-cell;
+  height: 2em;
+  min-width:3.6em;
+  vertical-align: middle;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+/* Action button */
+.task-action {
+  display: none;   /* display: table */
+  padding: 0.2em;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+
+/**************************************************/
+/* Small screen: Organize in rows, hide actions */
+/**************************************************/
+@media screen and (max-width: 650px) {
+  .task-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
-  
-  .table {
+
+  .task-info {
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
-  
-  .col-small, .col-big, .col-medium {
-    display: none;
+
+  .task-info-main, .task-info-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  
-  .table th, .table td {
-    padding: 8px;
-    display: block;
-    text-align: left;
+
+  .task-task {
+    min-width: 300px;
+    flex-grow: 8;
   }
-  
-  .table th {
-    font-size: 14px;
-    font-weight: bold;
+
+  .task-pos, .task-prio, .task-time {
+    width: 2.5em;
   }
-  
-  .table td {
-    font-size: 12px;
-    border-bottom: 1px solid #ddd;
+
+  .task-status {
+    width: 5em;
+    ;
   }
 }
+
+/**************************************************************/
+/* Medium screens: Organize in colums, but still hide actions */
+/**************************************************************/
+
+@media screen and (min-width: 650px) {
+  .task-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .task-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .task-info-main, .task-info-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-content: flex-start;*/
+  }
+
+  .task-task {
+    width: 300px;
+  }
+
+  .task-pos, .task-prio, .task-time, .task-actions {
+    width: 2.5em;
+  }
+
+  .task-status {
+    width: 5em;
+  }
+}
+
+/**************************************************************/
+/* Bigger screens: Organize in colums, but still hide actions */
+/**************************************************************/
+@media screen and (min-width: 800px) {
+  .task-task {
+    width: 450px;
+  }
+}
+
+/* Big screens: Organize in colums, show actions */
+@media screen and (min-width: 1000px) {
+  .task-card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .task-actions {
+    display: None;
+  }
+
+  .task-action {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tasks-caption .task-action-cell {
+    display: flex;
+  }
+
+  .task-action-cell {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+}
+
