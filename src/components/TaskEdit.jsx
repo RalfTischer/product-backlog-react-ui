@@ -36,7 +36,7 @@ const TaskEdit = ({ myKey,
     <div key={myKey}>
       <div className="task-info">
         <div className="task-info-main">
-          <div className="task-cell task-task">input name="task" style={inputStyle} type="text" value={editedTask.task} onChange={handleInputChange} /</div>
+          <div className="task-cell task-task"><input name="task" style={inputStyle} type="text" value={editedTask.task} onChange={handleInputChange} /></div>
         </div>
         <div className="task-info-sub">
           <div className="task-cell task-pos"><input name="pos" style={inputStyle} type="text" value={editedTask.pos} onChange={handleInputChange} /></div>
