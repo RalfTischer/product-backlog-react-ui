@@ -10,6 +10,51 @@ TODO:
 * User login
 * Allow multiple projects
 * Rethink where to place new tasks
+* Load screen (see code below) 
+
+```js
+// Load screen
+
+function DataFetcher() {
+  // State to store the fetched data
+  const [data, setData] = useState(null);
+  // State to handle the loading status
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Function to fetch data
+    const fetchData = async () => {
+      setIsLoading(true); // Start loading
+      try {
+        // Replace 'your-api-endpoint' with the actual API endpoint
+        const response = await fetch('your-api-endpoint');
+        const result = await response.json();
+        setData(result); // Set the fetched data
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+      } finally {
+        setIsLoading(false); // Stop loading regardless of the outcome
+      }
+    };
+
+    fetchData();
+  }, []); // The empty array ensures this effect runs only once after the initial render
+
+  // Render loading status or the fetched data
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h1>Data Loaded!</h1>
+      {/* Render your data here */}
+    </div>
+  );
+}
+
+export default DataFetcher; 
+```
 
 <!-- MD-TOC START LEVEL 1 -->
 
