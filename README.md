@@ -6,7 +6,8 @@ React user interface to work with simplified product backlogs.
 Both application and README.md documentation are _work in progress_.
 
 TODO:
-* Responsive design. (Next time: Mobile first!)
+* Responsive design, hamburger menu (see code below)
+* Next time: Mobile first!
 * User login
 * Allow multiple projects
 * Rethink where to place new tasks
