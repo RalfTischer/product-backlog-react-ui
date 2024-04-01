@@ -8,7 +8,7 @@ Both application and README.md documentation are _work in progress_.
 TODO:
 * Responsive design, hamburger menu (see code below)
 * Next time: Mobile first!
-* User login
+* [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA) 
 * Allow multiple projects
 * Rethink where to place new tasks
 * Load screen (see code below) 
