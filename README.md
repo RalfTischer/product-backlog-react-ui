@@ -3,7 +3,7 @@
 By Ralf Tischer, 2023-2024.
 
 React user interface to work with simplified product backlogs.
-APPLICATION code and `README.md` documentation are _work in progress_.
+Application code and `README.md` documentation are _work in progress_.
 
 TODO:
 * Responsive design, hamburger menu (see code below)
