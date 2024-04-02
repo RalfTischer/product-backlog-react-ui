@@ -5,7 +5,20 @@ By Ralf Tischer, 2023-2024.
 React user interface to work with simplified product backlogs.
 Application code and `README.md` documentation are _work in progress_.
 
-TODO:
+<!-- MD-TOC START LEVEL 1 -->
+
+## Table of Contents
+
+- [TODO](#todo)
+- [Links](#links)
+- [Technical Background](#technical-background)
+- [Available Scripts](#available-scripts)
+- [Author](#author)
+
+<!-- MD-TOC END --> 
+
+# TODO
+
 * Responsive design, hamburger menu (see code below)
 * Next time: Mobile first!
 * [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA) 
@@ -137,18 +150,6 @@ function DataFetcher() {
 
 export default DataFetcher; 
 ```
-
-<!-- MD-TOC START LEVEL 1 -->
-
-## Table of Contents
-
-- [Links](#links)
-- [Technical Background](#technical-background)
-- [Available Scripts](#available-scripts)
-- [Author](#author)
-
-<!-- MD-TOC END -->
-
 
 # Links
 
