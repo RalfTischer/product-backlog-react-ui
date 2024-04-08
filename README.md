@@ -19,91 +19,11 @@ Application code and `README.md` documentation are _work in progress_.
 
 # TODO
 
-* Responsive design, hamburger menu (see code below)
+* Improve responsive design/ hamburger menu
 * Next time: Mobile first!
 * [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA) 
 * Allow multiple projects
 * Rethink where to place new tasks
-
-```js
-// Hamburger menu
-
-import React, { useState } from 'react';
-
-function TaskItem({ myKey, myTask, onEdit, onDelete, onDownwards, onUpwards, onToTop }) {
-  const [showTaskActions, setShowTaskActions] = useState(false);
-
-  const toggleTaskActions = () => {
-    setShowTaskActions(!showTaskActions);
-  };
-
-  return (
-    <div key={myKey} onDoubleClick={onEdit}>
-      <div className="task-info">
-        <div className="task-info-main">
-          <div className="task-cell task-task">{myTask.task}</div>
-        </div>
-        <div className="task-info-sub">
-          <div className="task-cell task-pos">{myTask.pos}</div>
-          <div className="task-cell task-prio">{myTask.prio}</div>
-          <div className="task-cell task-time">{myTask.time}</div>
-          <div className="task-cell task-status">{myTask.status}</div>
-          <div className="task-cell task-actions">
-            <button onClick={toggleTaskActions} className={showTaskActions ? 'hide-on-large' : ''}>
-              &#9776;
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className={`task-cell task-action-cell ${showTaskActions ? '' : 'hide-on-large'}`}>
-        <div className="task-action">
-          <button className="task-button" onClick={onEdit}>
-            |...|
-          </button>
-          <button className="task-button" onClick={onDelete}>
-            |←
-          </button>
-          <button className="task-button" onClick={onDownwards}>
-            ▼
-          </button>
-          <button className="task-button" onClick={onUpwards}>
-            ▲
-          </button>
-          <button className="task-button" onClick={onToTop}>
-            ▲▲
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default TaskItem;
-```
-
-```css
-/* Hamburger menu */
-
-/* Small screens */
-.task-cell.task-action-cell {
-  display: none;
-}
-
-.hide-on-large {
-  display: block;
-}
-
-/* Large screens */
-@media (min-width: 768px) {
-  .task-cell.task-action-cell {
-    display: block;
-  }
-
-  .hide-on-large {
-    display: none;
-  }
-}
-```
 
 # Links
 
