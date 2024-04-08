@@ -8,12 +8,17 @@ import TaskAPI from "./models/TaskAPI.js";
 let db; 
 
 function App() {
+  // State to store the fetched data
+
   const [tasks, setTasks] = useState([]);
+  // State to handle the loading status
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
   // Fetch tasks from the database when the component mounts
   db = new TaskAPI();
   const fetchTasks = async () => {
+    setIsLoading(true); // Start loading
     try {
       let tasksFromDB = await db.getAllTasks("pos");
 
@@ -28,6 +33,8 @@ function App() {
     } catch (error) {
       // Handle error
       console.error('Error fetching tasks: ', error);
+    } finally {
+      setIsLoading(false); // Stop loading regardless of the outcome
     }
 
   };
@@ -99,7 +106,12 @@ function App() {
         setTasks(updatedTasks);
     }
   }
-    
+  
+  // Render loading status or the fetched data
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <TaskTable 
