@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TaskDisplay = ({  myKey,
                         myTask,
                         handleDelete,
                         handleMove, 
                         handleEdit }) => {
+
+  /* Hamburger menu in state :
+  
+  false (small screen): hide-on-large: flex
+                        task-action-cell: none 
+                        task-actions: flex
+  true (big screen):    hide-on-large: none
+                        task-action-cell: flex 
+                        task-actions: none
+  
+  Idea:
+  Only one task can be active at a time -> handleActive in TaskTable
+
+  */
+                  
+  
+  const [showTaskActions, setShowTaskActions] = useState(false);
+
+
+  const toggleTaskActions = () => {
+    console.log("Click -> Hamburger menu toggle");
+    setShowTaskActions(!showTaskActions);
+  };
 
   const onEdit = () => {
     // Edit clicked
@@ -46,10 +69,15 @@ const TaskDisplay = ({  myKey,
           <div className="task-cell task-prio">{myTask.prio}</div>
           <div className="task-cell task-time">{myTask.time}</div>
           <div className="task-cell task-status">{myTask.status}</div>
-          <div className="task-cell task-actions"><button>&#9776;</button></div>
+          <div className="task-cell task-actions">
+            <button onClick={toggleTaskActions} className={showTaskActions ? '' : ''}>
+              &#9776;
+            </button>
+          </div>
         </div>
       </div>
-      <div className="task-cell task-action-cell">
+      
+      <div className={`task-cell task-action-cell ${showTaskActions ? '' : 'hide-on-large'}`}>
         <div className="task-action">
           <button className="task-button" onClick={onEdit}>|...|</button>
           <button className="task-button" onClick={onDelete}>|←</button>

@@ -34,7 +34,7 @@ html {
   top: 0px;
 }
 
-.tasks-caption .task-action-cell {
+.tasks-caption.task-action-cell {
   display: none;
 }
 
@@ -60,7 +60,7 @@ html {
 
 /* Action button */
 .task-action {
-  display: none;   /* display: table */
+  display: table;   /* display: table */
   padding: 0.2em;
   justify-content: space-between;
   text-align: center;
@@ -103,6 +103,10 @@ html {
     width: 5em;
     ;
   }
+
+  .hide-on-large {
+    display: none;
+  }
 }
 
 /**************************************************************/
@@ -141,6 +145,10 @@ html {
   .task-status {
     width: 5em;
   }
+  
+  .hide-on-large {
+    display: none;
+  }
 }
 
 /**************************************************************/
@@ -154,6 +162,14 @@ html {
 
 /* Big screens: Organize in colums, show actions */
 @media screen and (min-width: 1000px) {
+  .task-cell.task-action-cell {
+    display: flex;
+  }
+
+  .hide-on-large {
+    display: none;
+  }
+
   .task-card {
     display: flex;
     flex-direction: row;
@@ -166,10 +182,6 @@ html {
   .task-action {
     display: flex;
     flex-direction: row;
-  }
-
-  .tasks-caption .task-action-cell {
-    display: flex;
   }
 
   .task-action-cell {
