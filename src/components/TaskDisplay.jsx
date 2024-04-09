@@ -23,9 +23,8 @@ const TaskDisplay = ({  myKey,
   */
                   
   
-  const [showTaskActions, setShowTaskActions] = useState(false);
-
-
+  const [showTaskActions, setShowTaskActions] = useState(actionable);
+  
   const toggleTaskActions = () => {
     console.log("Click -> Hamburger menu toggle");
     setShowTaskActions(!showTaskActions);
