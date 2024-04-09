@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Task from './Task';
 
-// Hold: editId
+// Hold: editId, actionId
   
 const TaskTable = ({  tasks, 
                       handleCreate,
@@ -10,6 +10,7 @@ const TaskTable = ({  tasks,
                       handleMove }) => {
 
   const [editId, setEditId] = useState(-1);
+  const [actionId, setActionId] = useState(-1);
 
   const handleEdit = (myTask) => {
     if (editId >= 0) {
@@ -28,6 +29,14 @@ const TaskTable = ({  tasks,
     }
     setEditId(-1);
   };
+
+  const handleActionable = (myTask) => {
+    // Set one task actionable or withdraw actionable 
+    if (actionId === myTask.id) {
+      setActionId(-1);
+   } else {
+      setActionId(myTask.id);
+  } 
   
   const handleSave = (myTask) => {
     if (myTask.id === 0) {
@@ -61,11 +70,7 @@ const TaskTable = ({  tasks,
             <div className="task-cell task-actions"><button className="task-button" onClick={onCreate}>*</button></div>
           </div>
         </div>
-        <div className="task-cell task-action-cell">
-          <div className="task-action">
-            <button className="task-button" onClick={onCreate}>*</button>
-          </div>
-        </div>
+        <hr class="task-line-caption">
       </div>
 
       {tasks.map(myTask => (
@@ -78,56 +83,13 @@ const TaskTable = ({  tasks,
             handleMove={handleMove}
             handleEdit={handleEdit}
             handleCancelEdit={handleCancelEdit}
+            handleActionable={handleActionable} 
             handleSave={handleSave}
           />
         </div>
       ))}
     </div>
   )
-
-
-  /*
-  return (
-    <div className="table-responsive">
-      <table className="table task-table table-dark table-hover w-100">
-          <colgroup>
-          <col className="col-small" />
-          <col className="col-small" />
-          <col className="col-big" />
-          <col className="col-small" />
-          <col className="col-small" />
-          <col className="col-medium" />
-          </colgroup>
-          <thead className="sticky-header">
-          <tr>
-              <th>Pos</th>
-              <th>Prio</th>
-              <th>Task</th>
-              <th>Time</th>
-              <th>Status</th>
-              <th>
-              Actions <button className="btn btn-sm btn-secondary" onClick={onCreate}>*</button>
-              </th>
-          </tr>
-          </thead>
-          <tbody>
-          {tasks.map(myTask => (
-              <Task 
-                key={myTask.id}
-                myTask={myTask} 
-                editable={editId === myTask.id}
-                handleDelete={handleDelete}
-                handleMove={handleMove}
-                handleEdit={handleEdit}
-                handleCancelEdit={handleCancelEdit}
-                handleSave={handleSave}
-              />
-          ))}
-          </tbody>
-      </table>
-    </div>
-  )
-  */
 };
 
 export default TaskTable;
