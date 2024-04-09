@@ -79,6 +79,7 @@ const TaskTable = ({  tasks,
             key={myTask.id}
             myTask={myTask} 
             editable={editId === myTask.id}
+            actionable={actionId === myTask.id}
             handleDelete={handleDelete}
             handleMove={handleMove}
             handleEdit={handleEdit}
