@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 const TaskDisplay = ({  myKey,
                         myTask,
+                        actionable,
                         handleDelete,
                         handleMove, 
+                        handleActionable, 
                         handleEdit }) => {
 
   /* Hamburger menu in state :
@@ -27,6 +29,7 @@ const TaskDisplay = ({  myKey,
   const toggleTaskActions = () => {
     console.log("Click -> Hamburger menu toggle");
     setShowTaskActions(!showTaskActions);
+    handleActionable(myTask);
   };
 
   const onEdit = () => {
