@@ -13,11 +13,6 @@ html {
   justify-content: space-between;
 }
 
-.task-line-caption {
-  border-width: 2px;
-  width: 100%;
-}
-
 .task-line {
   border-width: 0.1px;
   width: 100%;
@@ -26,16 +21,6 @@ html {
 .tasks {
   background-color: rgb(239, 230, 220);
   width: 100%
-}
-
-.tasks-caption {
-  font-weight: bold;
-  position: sticky;
-  top: 0px;
-}
-
-.tasks-caption.task-action-cell {
-  display: none;
 }
 
 .task-cell {
@@ -59,11 +44,31 @@ html {
 }
 
 /* Action button */
+.task-actions, .task-action-cell {
+  display: flex;
+}
+
 .task-action {
   display: table;   /* display: table */
   padding: 0.2em;
   justify-content: space-between;
   text-align: center;
+  width: 100%;
+}
+
+/* Caption */
+.tasks-caption {
+  font-weight: bold;
+  position: sticky;
+  top: 0px;
+}
+
+.tasks-caption.task-action-cell {
+  display: none;
+}
+
+.task-line-caption {
+  border-width: 2px;
   width: 100%;
 }
 
@@ -104,13 +109,13 @@ html {
     ;
   }
 
-  .hide-on-large {
+  .hide-on-small {
     display: none;
   }
 }
 
 /**************************************************************/
-/* Medium screens: Organize in colums, but still hide actions */
+/* Medium screen: Organize in colums, but still hide actions */
 /**************************************************************/
 
 @media screen and (min-width: 650px) {
@@ -146,13 +151,13 @@ html {
     width: 5em;
   }
   
-  .hide-on-large {
+  .hide-on-small {
     display: none;
   }
 }
 
 /**************************************************************/
-/* Bigger screens: Organize in colums, but still hide actions */
+/* Bigger screen: Organize in colums, but still hide actions */
 /**************************************************************/
 @media screen and (min-width: 800px) {
   .task-task {
@@ -160,14 +165,10 @@ html {
   }
 }
 
-/* Big screens: Organize in colums, show actions */
+/* Large screens: Organize in colums, show actions */
 @media screen and (min-width: 1000px) {
   .task-cell.task-action-cell {
     display: flex;
-  }
-
-  .hide-on-large {
-    display: none;
   }
 
   .task-card {
@@ -180,14 +181,15 @@ html {
   }
 
   .task-action {
-    display: flex;
     flex-direction: row;
   }
 
   .task-action-cell {
-    display: flex;
     flex-wrap: nowrap;
   }
   
+  .hide-on-large {
+    display: none;
+  }
 }
 
