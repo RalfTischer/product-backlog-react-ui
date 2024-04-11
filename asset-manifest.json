@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/product-backlog-react-ui/static/css/main.83190423.css",
-    "main.js": "/product-backlog-react-ui/static/js/main.cef9c5ad.js",
+    "main.css": "/product-backlog-react-ui/static/css/main.0af75362.css",
+    "main.js": "/product-backlog-react-ui/static/js/main.78b3ec00.js",
     "index.html": "/product-backlog-react-ui/index.html",
-    "main.83190423.css.map": "/product-backlog-react-ui/static/css/main.83190423.css.map",
-    "main.cef9c5ad.js.map": "/product-backlog-react-ui/static/js/main.cef9c5ad.js.map"
+    "main.0af75362.css.map": "/product-backlog-react-ui/static/css/main.0af75362.css.map",
+    "main.78b3ec00.js.map": "/product-backlog-react-ui/static/js/main.78b3ec00.js.map"
   },
   "entrypoints": [
-    "static/css/main.83190423.css",
-    "static/js/main.cef9c5ad.js"
+    "static/css/main.0af75362.css",
+    "static/js/main.78b3ec00.js"
   ]
 }
