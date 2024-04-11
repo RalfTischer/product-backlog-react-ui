@@ -16,11 +16,6 @@ html {
   width: 100%
 }
 
-.task-line {
-  border-width: 0.1px;
-  width: 100%;
-}
-
 .tasks {
   width: 100%;
 }
@@ -30,10 +25,16 @@ html {
   padding: 0.4em;
   text-align: center;
   vertical-align: middle;
+  word-wrap: break-word;
 }
 
-.task-id, .task-task {
+.task-task {
   text-align: left;
+  word-wrap: normal;
+}
+
+.task-card input {
+  width: 100%;
 }
 
 .task-button {
@@ -97,16 +98,16 @@ html {
     justify-content: space-between;
   }
 
-  .task-task {
-    flex-grow: 8;
-  }
-
   .task-pos, .task-prio, .task-time, .task-actions {
     width: 15%;
   }
 
   .task-actions {
     vertical-align: middle;
+  }
+
+  .task-task {
+    flex-grow: 8;
   }
 
   .task-status {
@@ -142,32 +143,29 @@ html {
     justify-content: space-evenly;
     /* justify-content: flex-start;*/
   }
-
-  .task-task {
-    width: 300px;
+  
+  .task-cell {
+    border-style: solid;
   }
+  
+  .task-task {
+    /* width: 330px; */
+    width: 330px;
+    }
 
   .task-pos, .task-prio, .task-time, .task-actions {
-    width: 2.5em;
+    width: 50px;
   }
 
   .task-status {
-    width: 5em;
+    width: 80px;
   }
-  
+
   .hide-on-small {
     display: none;
   }
 }
 
-/**************************************************************/
-/* Bigger screen: Organize in colums, but still hide actions */
-/**************************************************************/
-@media screen and (min-width: 800px) {
-  .task-task {
-    width: 450px;
-  }
-}
 
 /* Large screens: Organize in colums, show actions */
 @media screen and (min-width: 1000px) {

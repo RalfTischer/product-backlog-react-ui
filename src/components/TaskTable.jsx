@@ -71,7 +71,7 @@ const TaskTable = ({  tasks,
             <div className="task-cell task-actions"><button className="task-button" onClick={onCreate}>*</button></div>
           </div>
         </div>
-        <hr class="task-line-caption"></hr>
+        <hr className="task-line-caption"></hr>
       </div>
 
       {tasks.map(myTask => (
