@@ -33,8 +33,9 @@ html {
   word-wrap: normal;
 }
 
-.task-card input {
+.task-card input, task-card textarea {
   width: 100%;
+  boxSizing: 'border-box';
 }
 
 .task-button {
