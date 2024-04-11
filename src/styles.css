@@ -51,6 +51,11 @@ html {
   display: flex;
 }
 
+.task-actions {
+  width: 50px;
+  vertical-align: middle;
+}
+
 .task-action {
   display: table;   /* display: table */
   padding: 0.2em;
@@ -143,22 +148,18 @@ html {
     justify-content: space-evenly;
     /* justify-content: flex-start;*/
   }
-  
-  .task-cell {
-    border-style: solid;
-  }
-  
+
   .task-task {
     /* width: 330px; */
-    width: 330px;
+    width: calc(70vw - 214px);
     }
 
-  .task-pos, .task-prio, .task-time, .task-actions {
-    width: 50px;
+  .task-pos, .task-prio, .task-time {
+    width: calc(5.71vw + 22px);
   }
 
   .task-status {
-    width: 80px;
+    width: calc(11.43vw + 45px)
   }
 
   .hide-on-small {

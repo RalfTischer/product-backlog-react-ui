@@ -43,13 +43,13 @@ const TaskEdit = ({ myKey,
     <div className="task-card" key={myKey}>
       <div className="task-info">
         <div className="task-info-main">
-          <div className="task-cell task-task"><input className="input-text" name="task" type="text" value={editedTask.task} onChange={handleInputChange} /></div>
+          <div className="task-cell task-task"><input name="task" type="text" value={editedTask.task} onChange={handleInputChange} /></div>
         </div>
         <div className="task-info-sub">
-          <div className="task-cell task-pos"><input className="input-text" name="pos" type="text" value={editedTask.pos} onChange={handleInputChange} /></div>
-          <div className="task-cell task-prio"><input className="input-text" name="prio" type="text" value={editedTask.prio} onChange={handleInputChange} /></div>
-          <div className="task-cell task-time"><input className="input-text" name="time" type="text" value={editedTask.time} onChange={handleInputChange} /></div>
-          <div className="task-cell task-status"><input className="input-text" name="status" type="text" value={editedTask.status} onChange={handleInputChange} /></div>
+          <div className="task-cell task-pos"><input name="pos" type="text" value={editedTask.pos} onChange={handleInputChange} /></div>
+          <div className="task-cell task-prio"><input name="prio" type="text" value={editedTask.prio} onChange={handleInputChange} /></div>
+          <div className="task-cell task-time"><input name="time" type="text" value={editedTask.time} onChange={handleInputChange} /></div>
+          <div className="task-cell task-status"><input name="status" type="text" value={editedTask.status} onChange={handleInputChange} /></div>
           <div className="task-cell task-actions">
             <button onClick={toggleTaskActions}>
               &#9776;
