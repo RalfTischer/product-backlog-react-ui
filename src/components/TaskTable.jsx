@@ -34,9 +34,10 @@ const TaskTable = ({  tasks,
     // Set one task actionable or withdraw actionable 
     if (actionId === myTask.id) {
       setActionId(-1);
-   } else {
+    } else {
       setActionId(myTask.id);
-  } 
+    } 
+  };
   
   const handleSave = (myTask) => {
     if (myTask.id === 0) {
@@ -70,7 +71,7 @@ const TaskTable = ({  tasks,
             <div className="task-cell task-actions"><button className="task-button" onClick={onCreate}>*</button></div>
           </div>
         </div>
-        <hr class="task-line-caption">
+        <hr class="task-line-caption"></hr>
       </div>
 
       {tasks.map(myTask => (

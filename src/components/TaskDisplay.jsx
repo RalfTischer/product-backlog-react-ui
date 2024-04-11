@@ -16,7 +16,6 @@ const TaskDisplay = ({  myKey,
   */
   
   const toggleTaskActions = () => {
-    console.log("Click -> Hamburger menu toggle");
     actionable = !actionable;
     handleActionable(myTask);
   };
@@ -28,25 +27,21 @@ const TaskDisplay = ({  myKey,
 
   const onDelete = () => {
     // Delete clicked
-    console.log("Delete clicked.");
     handleDelete(myTask);
   };
 
   const onDownwards = () => {
     // Downwards clicked
-    console.log("Downwards clicked.");
     handleMove(myTask, 1);
   };
 
   const onUpwards = () => {
     // Upwards clicked
-    console.log("Upwards clicked.");
     handleMove(myTask, -1);
   };
 
   const onToTop = () => {
     // ToTop clicked
-    console.log("ToTop clicked.");
     handleMove(myTask, -999999);
   };
 
@@ -62,7 +57,7 @@ const TaskDisplay = ({  myKey,
           <div className="task-cell task-time">{myTask.time}</div>
           <div className="task-cell task-status">{myTask.status}</div>
           <div className="task-cell task-actions">
-            <button onClick={toggleTaskActions} className={actionable ? 'hide-on-small hide-on-large' : 'hide-on-large'}>
+            <button onClick={toggleTaskActions}>
               &#9776;
             </button>
           </div>
@@ -78,7 +73,6 @@ const TaskDisplay = ({  myKey,
           <button className="task-button" onClick={onToTop}>▲▲</button>
         </div>
       </div>
-      <hr class="task-line">
     </div>
   )
 

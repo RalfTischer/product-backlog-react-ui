@@ -11,6 +11,9 @@ html {
 .task-card {
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(236, 233, 230);
+  margin: 0.4em;
+  width: 100%
 }
 
 .task-line {
@@ -19,8 +22,7 @@ html {
 }
 
 .tasks {
-  background-color: rgb(239, 230, 220);
-  width: 100%
+  width: 100%;
 }
 
 .task-cell {
@@ -61,6 +63,7 @@ html {
   font-weight: bold;
   position: sticky;
   top: 0px;
+  background-color: rgb(239, 230, 220);
 }
 
 .tasks-caption.task-action-cell {
@@ -71,7 +74,6 @@ html {
   border-width: 2px;
   width: 100%;
 }
-
 
 /**************************************************/
 /* Small screen: Organize in rows, hide actions */
@@ -92,21 +94,23 @@ html {
   .task-info-main, .task-info-sub {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 
   .task-task {
-    min-width: 300px;
     flex-grow: 8;
   }
 
-  .task-pos, .task-prio, .task-time {
-    width: 2.5em;
+  .task-pos, .task-prio, .task-time, .task-actions {
+    width: 15%;
+  }
+
+  .task-actions {
+    vertical-align: middle;
   }
 
   .task-status {
-    width: 5em;
-    ;
+    flex-grow: 3;
   }
 
   .hide-on-small {
@@ -186,10 +190,6 @@ html {
 
   .task-action-cell {
     flex-wrap: nowrap;
-  }
-  
-  .hide-on-large {
-    display: none;
   }
 }
 
