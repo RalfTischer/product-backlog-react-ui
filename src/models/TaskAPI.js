@@ -76,7 +76,7 @@ class TaskAPI {
           
           if (!data.success) {
             // Handle failed login
-            return null;
+            return false;
           }
         return data.token;
     }
