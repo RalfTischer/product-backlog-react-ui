@@ -59,7 +59,7 @@ class TaskAPI {
     }
 
     async login(username, password) {
-        const response = await fetch(TASK_API_URL, {
+        const response = await fetch(`${this.baseURL}/login`) {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
