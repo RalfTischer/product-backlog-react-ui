@@ -13,6 +13,12 @@ html {
   justify-content: space-between;
 }
 
+/*
+input, textarea {
+  width: '100%',
+}
+*/
+
 .task-line-caption {
   border-width: 2px;
   width: 100%;
