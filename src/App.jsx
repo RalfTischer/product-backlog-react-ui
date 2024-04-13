@@ -46,8 +46,8 @@ function App() {
 
   };
   fetchTasks();
-  }, []);
-  
+}, [db]);
+      
   const handleLogin = (token) => {
     // Store token
     setIsLoggedIn(true);
