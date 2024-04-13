@@ -20,7 +20,7 @@ Application code and `README.md` documentation are _work in progress_.
 # TODO
 
 * Improve responsive design/ hamburger menu
-* [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA), [improvements] (https://www.perplexity.ai/search/Does-this-code-tK8sGanTR3KevBwQiPX8dw) 
+* [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA), [improvements](https://www.perplexity.ai/search/Does-this-code-tK8sGanTR3KevBwQiPX8dw) 
 * Allow multiple projects
 * Rethink where to place new tasks
 
