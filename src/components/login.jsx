@@ -16,25 +16,6 @@ function Login({ onLogin, db }) {
         // Render error
         return <p>Error logging in.</p>
     };
-
-    const response = await fetch('https://your-api-endpoint.com/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username,
-        password
-      })
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      
-    } else {
-      // Handle failed login
-    }
   };
 
   return (
