@@ -2,13 +2,6 @@ import React, { useState } from 'react';
 
 // Hold editedTask
 
-const inputStyle = {
-  /*
-  width: '100%',
-  boxSizing: 'border-box'
-  */
-}
-
 const TaskEdit = ({ myKey,
                     myTask,
                     actionable,
@@ -44,7 +37,7 @@ const TaskEdit = ({ myKey,
       <div className="task-info">
         <div className="task-info-main">
           <div className="task-cell task-task"><textarea name="task" type="text" value={editedTask.task} onChange={handleInputChange}></textarea></div>
-        </div>task-task"><textarea
+        </div>
         <div className="task-info-sub">
           <div className="task-cell task-pos"><input name="pos" type="text" value={editedTask.pos} onChange={handleInputChange} /></div>
           <div className="task-cell task-prio"><input name="prio" type="text" value={editedTask.prio} onChange={handleInputChange} /></div>
