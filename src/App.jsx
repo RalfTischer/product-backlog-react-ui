@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import TaskTable from './components/TaskTable';
 import TaskAPI from "./models/TaskAPI.js";
+import Login from './components/login.jsx';
 
-// Hold `tasks` 
+// Hold `tasks`, `isLoggedIn`, `token`, `isLoading`
 // Bridge to model `TaskAPI`
 
 let db; 
 
 function App() {
   // State to store the fetched data
-
   const [tasks, setTasks] = useState([]);
+
   // State to handle the loading status
   const [isLoading, setIsLoading] = useState(false);
-  
+
+  // State to check login state
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  // State to store the received API token
+  const [token, setToken] = useState(null);
+
   useEffect(() => {
   // Fetch tasks from the database when the component mounts
   db = new TaskAPI();
@@ -41,6 +48,12 @@ function App() {
   fetchTasks();
   }, []);
   
+  const handleLogin = (token) => {
+    // Store token
+    setIsLoggedIn(true);
+    setToken(token);
+  };
+
   const handleCreate = async (myTask) => {
     // Create new task
     db = new TaskAPI();
@@ -107,22 +120,30 @@ function App() {
     }
   }
   
-  // Render loading status or the fetched data
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (isLoggedIn) {
+    // Logged in
+    if (isLoading) {
+      // Render loading status or the fetched data
+      return <div>Loading data with token {token}...</div>;
+    } else {
+      // Render protected main content
+      return (
+        <div>
+          <TaskTable 
+            tasks={tasks}
+            handleCreate={handleCreate}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+          />
+        </div>
+      );
+    }
+  } else {
+    // User login
+    db = new TaskAPI();
+    return <div><Login onLogin={handleLogin} db={db} /></div>
   }
-
-  return (
-    <div>
-      <TaskTable 
-        tasks={tasks}
-        handleCreate={handleCreate}
-        handleUpdate={handleUpdate}
-        handleDelete={handleDelete}
-        handleMove={handleMove}
-      />
-    </div>
-  );
 }
 
 export default App;
