@@ -1,5 +1,5 @@
-const TASK_API_URL = "https://ralftischer.pythonanywhere.com"
-//const TASK_API_URL = "http://127.0.0.1:5000"
+//const TASK_API_URL = "https://ralftischer.pythonanywhere.com"
+const TASK_API_URL = "http://127.0.0.1:5000"
 //const TASK_API_URL = "http://192.168.2.111:5555"
 
 class TaskAPI {
@@ -56,6 +56,29 @@ class TaskAPI {
             },
         });
         return response.json();
+    }
+
+    async login(username, password) {
+        const response = await fetch(TASK_API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              username,
+              password
+            })
+          });
+
+          const data = await response.json();
+          
+          console.log(data);
+          
+          if (!data.success) {
+            // Handle failed login
+            return null;
+          }
+        return data.token;
     }
 }
 
