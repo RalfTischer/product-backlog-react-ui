@@ -6,16 +6,25 @@ function Login({ onLogin, db }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+  
+    try {
+      console.log("Logging in with", username, password);
+      const token = await db.login(username, password);
+      console.log("Received token", token);
 
-    const token = db.login(username, password);
-
-    if (token) {
-      console.log("Success in receiving the token", token);
-      onLogin(token); // Call the onLogin callback with the token
-    } else {
+      if (token) {
+        console.log("Success in receiving the token", token);
+        onLogin(token); // Call the onLogin callback with the token
+        return <p>Logged in with token {token}</p>
+      } else {
         // Render error
-        return <p>Error logging in.</p>
-    };
+        return <p>Error logging in.</p>;
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      // Render error message or handle the error in another way
+      return <p>Error logging in.</p>;
+    }
   };
 
   return (
