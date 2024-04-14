@@ -59,7 +59,7 @@ class TaskAPI {
     }
 
     async login(username, password) {
-        const response = await fetch(`${this.baseURL}/login`) {
+        const response = await fetch(`${this.baseURL}/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -67,12 +67,12 @@ class TaskAPI {
             body: JSON.stringify({
               username,
               password
-            })
+            }),
           });
 
           const data = await response.json();
           
-          console.log(data);
+          console.log("Login recieved", data);
           
           if (!data.success) {
             // Handle failed login
