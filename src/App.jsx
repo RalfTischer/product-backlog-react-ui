@@ -22,31 +22,35 @@ function App() {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-  // Fetch tasks from the database when the component mounts
-  db = new TaskAPI();
-  const fetchTasks = async () => {
-    setIsLoading(true); // Start loading
-    try {
-      let tasksFromDB = await db.getAllTasks("pos");
 
-      // Make sure to have sequential pos numbers
-      tasksFromDB.sort((a, b) => a.pos - b.pos).forEach((task, index) => {
-        task.pos = index + 1;
-      });
-
-      setTasks(tasksFromDB); // Set the fetched tasks to the state
-      // console.log("### App #### Processed tasksFromDB:", tasksFromDB);
-  
-    } catch (error) {
-      // Handle error
-      console.error('Error fetching tasks: ', error);
-    } finally {
-      setIsLoading(false); // Stop loading regardless of the outcome
+    if (!isLoggedIn) { 
+      return;
     }
 
-  };
-  fetchTasks();
-}, [db]);
+    // Fetch tasks from the database when the component mounts
+    db = new TaskAPI();
+    const fetchTasks = async () => {
+      setIsLoading(true); // Start loading
+      try {
+        let tasksFromDB = await db.getAllTasks("pos");
+
+        // Make sure to have sequential pos numbers
+        tasksFromDB.sort((a, b) => a.pos - b.pos).forEach((task, index) => {
+          task.pos = index + 1;
+        });
+
+        setTasks(tasksFromDB); // Set the fetched tasks to the state
+        // console.log("### App #### Processed tasksFromDB:", tasksFromDB);
+    
+      } catch (error) {
+        // Handle error
+        console.error('Error fetching tasks: ', error);
+      } finally {
+        setIsLoading(false); // Stop loading regardless of the outcome
+      }
+    };
+    fetchTasks();
+  }, [isLoggedIn]);
       
   const handleLogin = (token) => {
     // Store token
