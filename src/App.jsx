@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TaskTable from './components/TaskTable';
 import TaskAPI from "./models/TaskAPI.js";
-import Login from './components/login.jsx';
+import Login from './components/Login.jsx';
 
 // Hold `tasks`, `isLoggedIn`, `token`, `isLoading`
 // Bridge to model `TaskAPI`
