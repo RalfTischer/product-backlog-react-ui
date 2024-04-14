@@ -59,6 +59,8 @@ class TaskAPI {
     }
 
     async login(username, password) {
+        console.log("Starting login");
+        
         const response = await fetch(`${this.baseURL}/login`, {
             method: 'POST',
             headers: {
@@ -70,6 +72,10 @@ class TaskAPI {
             }),
           });
 
+          /* 
+          return await response.json().token;
+          */
+
           const data = await response.json();
           
           console.log("Login recieved", data);
@@ -78,6 +84,7 @@ class TaskAPI {
             // Handle failed login
             return false;
           }
+          
         return data.token;
     }
 }
