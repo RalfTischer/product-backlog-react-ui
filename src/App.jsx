@@ -16,7 +16,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   // State to check login state
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // State to store the received API token
   const [token, setToken] = useState(null);
