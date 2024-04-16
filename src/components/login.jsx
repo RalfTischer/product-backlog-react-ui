@@ -8,7 +8,7 @@ function Login({ onLogin, db }) {
     event.preventDefault();
   
     try {
-      console.log("Logging in with", username, password);
+      console.log(`Logging in with ${username}, ${password}`);
       const token = await db.login(username, password);
       console.log("Received token", token);
 
