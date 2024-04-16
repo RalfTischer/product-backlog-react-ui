@@ -3,7 +3,6 @@ import TaskTable from './components/TaskTable';
 import Login from "./components/Login.jsx";
 import TaskAPI from "./models/TaskAPI.js";
 
-
 // Hold `tasks`, `isLoggedIn`, `token`, `isLoading`
 // Bridge to model `TaskAPI`
 
@@ -50,7 +49,7 @@ function App() {
     fetchTasks();
   }, [isLoggedIn, token]);
       
-  const handleLogin = (authToken) => {
+  const handleLogin = async (authToken) => {
     console.log("handleLogin: AuthToken received", authToken);
     setToken(prevToken => {
       console.log("handleLogin: Token set to", prevToken); // Access the previous token value
@@ -76,7 +75,6 @@ function App() {
   const handleUpdate = (myTask) => {
     // Update task with new data
     db = new TaskAPI();
-
     const updatedTasks = [...tasks];
     const taskIndex = updatedTasks.findIndex(task => task.id === myTask.id);
     if (taskIndex !== -1) {
@@ -90,7 +88,6 @@ function App() {
     // Delete task
     if (window.confirm("Really delete task " + myTask.id + " [" + myTask.task +"]?")) {
       db = new TaskAPI();
-
       let updatedTasks = [...tasks];
       updatedTasks = updatedTasks.filter(task => task.id !== myTask.id);
       db.deleteTask(myTask.id);
