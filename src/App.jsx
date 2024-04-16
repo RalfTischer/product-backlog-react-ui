@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import TaskTable from './components/TaskTable';
+import Login from "./components/Login.jsx";
 import TaskAPI from "./models/TaskAPI.js";
-import Login from './components/Login.jsx';
+
 
 // Hold `tasks`, `isLoggedIn`, `token`, `isLoading`
 // Bridge to model `TaskAPI`
@@ -23,16 +24,13 @@ function App() {
 
   useEffect(() => {
 
-    if (!isLoggedIn) { 
-      return;
-    }
-
     // Fetch tasks from the database when the component mounts
     db = new TaskAPI();
     const fetchTasks = async () => {
       setIsLoading(true); // Start loading
       try {
-        let tasksFromDB = await db.getAllTasks("pos");
+        let tasksFromDB = await db.getAllTasks(token, "pos");
+        console.log(tasksFromDB);
 
         // Make sure to have sequential pos numbers
         tasksFromDB.sort((a, b) => a.pos - b.pos).forEach((task, index) => {
@@ -50,21 +48,25 @@ function App() {
       }
     };
     fetchTasks();
-  }, [isLoggedIn]);
+  }, [isLoggedIn, token]);
       
-  const handleLogin = (token) => {
-    // Store token
+  const handleLogin = (authToken) => {
+    console.log("handleLogin: AuthToken received", authToken);
+    setToken(prevToken => {
+      console.log("handleLogin: Token set to", prevToken); // Access the previous token value
+      return authToken; // Update token state
+    });
     setIsLoggedIn(true);
-    setToken(token);
+    console.log("IsLoggedIn", isLoggedIn)
   };
 
   const handleCreate = async (myTask) => {
     // Create new task
     db = new TaskAPI();
     const updatedTasks = [...tasks];  // Create a copy of tasks
-    const newId = await db.createTask(myTask);  // Save and get new id
+    const newId = await db.createTask(token, myTask);  // Save and get new id
 
-    let newTask ={ ... myTask};       // Create a copy of the new task
+    let newTask ={...myTask};       // Create a copy of the new task
     newTask.id = newId;               // Set new id
     
     updatedTasks.push(newTask);
@@ -118,7 +120,7 @@ function App() {
       db = new TaskAPI();
       updatedTasks.forEach(async (task, index) => {
         task.pos = index + 1;
-        await db.updateTask(task.id, task); // Update each task in the database
+        await db.updateTask(token, task.id, task); // Update each task in the database
       });
         setTasks(updatedTasks);
     }
