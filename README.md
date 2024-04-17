@@ -33,6 +33,10 @@ Application code and `README.md` documentation are _work in progress_.
 
 The [React app](https://ralftischer.github.io/product-backlog-react-ui/) calls a Flask API to access a simple SQLite database.
 
+## React Components
+
+![Charts of Components](./docu/ProductBacklogComponents.png)
+
 
 # Available Scripts
 
