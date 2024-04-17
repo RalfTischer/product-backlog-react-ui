@@ -5,23 +5,30 @@ By Ralf Tischer, 2023-2024.
 React user interface to work with simplified product backlogs.
 Application code and `README.md` documentation are _work in progress_.
 
-<!-- MD-TOC START LEVEL 1 -->
+<!-- MD-TOC START LEVEL 2 -->
 
 ## Table of Contents
 
 - [TODO](#todo)
 - [Links](#links)
 - [Technical Background](#technical-background)
+  - [React Components](#react-components)
 - [Available Scripts](#available-scripts)
+  - [`npm start`](#`npm-start`)
+  - [`npm test`](#`npm-test`)
+  - [`npm run deploy`](#`npm-run-deploy`)
+  - [`npm run build`](#`npm-run-build`)
+  - [`npm run eject`](#`npm-run-eject`)
 - [Author](#author)
 
-<!-- MD-TOC END --> 
+<!-- MD-TOC END -->
 
 # TODO
 
 * Improve responsive design/ hamburger menu
-* [User login](https://www.perplexity.ai/search/Implement-a-user-MD3mJx7ETuWIxXuyFeVAKA), [improvements](https://www.perplexity.ai/search/Does-this-code-tK8sGanTR3KevBwQiPX8dw) 
-* Allow multiple projects
+* Continue login
+* Perhaps change existing components to more generic ones
+* Allow multiple projects: new components List --> perhaps 
 * Rethink where to place new tasks
 
 # Links
