@@ -70,6 +70,10 @@ class TaskAPI {
 
     async login(username, password) {
         console.log("Starting login");
+
+        if (!username || !password) {
+            return false;
+        }
         
         const response = await fetch(`${this.baseURL}/login`, {
             method: 'POST',
