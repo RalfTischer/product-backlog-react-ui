@@ -1,36 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Login({ 
-                db,
-                onLogin
-              }) {
+const Login = ({  db,
+                  handleLoginSuccess
+              }) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [token, setToken] = useState(null);
+  
+  // Login status
+  const NOT_LOGGED_IN = "notLoggedIn";
+  const LOGGED_IN = "loggedIn";
+  const LOGIN_ERROR = "loginError";
+  const [loginStatus, setLoginStatus] = useState(NOT_LOGGED_IN);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       console.log(`Logging in with ${username}, ${password}`);
       const token = await db.login(username, password);
       console.log("Received token", token);
-
-      if (token) {
-        console.log("Success in receiving the token", token);
-        onLogin(token); // Call the onLogin callback with the token
-        return <p>Logged in with token {token}</p>
-      } else {
-        // Render error
-        return <p>Error logging in.</p>;
-      }
+      setToken(token);
+      setLoginStatus(LOGGED_IN);
+      handleLoginSuccess(token);
     } catch (error) {
-      console.error("Error logging in:", error);
-      // Render error message or handle the error in another way
-      return <p>Error logging in.</p>;
+      console.log("Error logging in:", error);
+      setUsername("");
+      setPassword("");
+      setToken(null);
+      setLoginStatus(NOT_LOGGED_IN);
     }
   };
 
+  useEffect(() => {
+    console.log("loginStatus|token updated to:", loginStatus, "|", token);
+  }, [loginStatus, token]);
+  
   return (
     <form onSubmit={handleSubmit}>
       <label>

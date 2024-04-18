@@ -90,9 +90,10 @@ class TaskAPI {
           console.log(data);
           
           if (data.token) {
-            console.log("Login recieved", data);
+            console.log("Login recieved.", data);
             return data.token; 
           } else {
+            console.log("Login incorrect.", data);
             return false;
           }
     }
