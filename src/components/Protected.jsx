@@ -97,11 +97,17 @@ function Protected({
         setTasks(updatedTasks);
     }
   }
-    
+
+  useEffect(() => {
+    fetchTasks();
+    console.log("fetch Tasks");
+  }, []);
+
   //console.log("accessStatus", accessStatus);
   
+  console.log("Welcome to the Protected World!");
+  console.log("Token", token);
   return (
-    
     <div>
       <TaskTable 
         tasks={tasks}
