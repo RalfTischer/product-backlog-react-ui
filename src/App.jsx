@@ -76,9 +76,9 @@ function App() {
 
   return (
     <> 
-      {accessStatus === NOT_LOGGED_IN &&  <div><Login db={db} handleLoginSuccess={handleLoginSuccess} /></div>}
-      {accessStatus === LOGIN_ERROR &&    <div>Login Error</div>}
-      {accessStatus === LOGGED_IN &&      <div>Login succesful with token {token}</div>}
+      {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
+      {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
+      {accessStatus === LOGGED_IN && <Protected token={token} />}
     </>
 
   );
