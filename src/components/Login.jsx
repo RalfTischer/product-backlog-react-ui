@@ -16,16 +16,26 @@ const Login = ({  db,
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
+    console.log(`Logging in with ${username}, ${password}`);
+    
     try {
-      console.log(`Logging in with ${username}, ${password}`);
-      const token = await db.login(username, password);
-      console.log("Received token", token);
-      setToken(token);
-      setLoginStatus(LOGGED_IN);
-      handleLoginSuccess(token);
+      const response = await db.login(username, password);
+      console.log('Received response', response);
+      if (response.token) {
+        console.log("Received token: ", response.token);
+        setToken(response.token);
+        setLoginStatus(LOGGED_IN);
+        handleLoginSuccess(response.token);
+      } else {
+        console.log("Error logging in: ", response.error);
+        setUsername("");
+        setPassword("");
+        setToken(null);
+        setLoginStatus(LOGIN_ERROR);
+      }
     } catch (error) {
-      console.log("Error logging in:", error);
+      console.log("Error logging in:");
       setUsername("");
       setPassword("");
       setToken(null);
