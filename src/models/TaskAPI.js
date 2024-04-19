@@ -86,17 +86,17 @@ class TaskAPI {
             }),
           });
 
-          const data = await response.json();
-          console.log(data);
-          
-          if (data.token) {
-            console.log("Login recieved.", data);
-            return data.token; 
-          } else {
-            console.log("Login incorrect.", data);
-            return false;
-          }
+        const data = await response.json();
+        console.log(data);
+        
+        if (data && data.message === "Login succesful" && data.token) {
+        console.log("Login successful.");
+        return data;
+        } else {
+        console.log("Login incorrect.");
+        return data;
+        }
     }
 }
 
-export default TaskAPI
+export default TaskAPI;
