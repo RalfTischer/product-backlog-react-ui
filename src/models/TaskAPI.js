@@ -27,7 +27,7 @@ class TaskAPI {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': token
             }
         });
         return response.json();
@@ -38,7 +38,7 @@ class TaskAPI {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': token
             },
             body: JSON.stringify(data)
         });
@@ -50,7 +50,7 @@ class TaskAPI {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': token
             },
             body: JSON.stringify(data)
         });
@@ -62,7 +62,7 @@ class TaskAPI {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': token
             },
         });
         return response.json();
