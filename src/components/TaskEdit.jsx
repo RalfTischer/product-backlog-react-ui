@@ -9,7 +9,7 @@ const TaskEdit = ({ myKey,
                     handleSave,
                     handleCancelEdit }) => {
 
-  console.log(myTask);
+  // console.log(myTask);
 
   const [editedTask, setEditedTask] = useState(myTask);
 
