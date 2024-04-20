@@ -15,6 +15,8 @@ function Protected({
     const db = new TaskAPI();
     try {
       // setAccessStatus(IS_LOADED);
+      console.log("fetchTasks, token:", token);
+
       let tasksFromDB = await db.getAllTasks(token, "pos");
       console.log(tasksFromDB);
 
@@ -24,7 +26,7 @@ function Protected({
       });
 
       setTasks(tasksFromDB); // Set the fetched tasks to the state
-      // console.log("### App #### Processed tasksFromDB:", tasksFromDB);
+      console.log("### App #### Processed tasksFromDB:", tasksFromDB);
   
     } catch (error) {
       // Handle error
@@ -105,7 +107,7 @@ function Protected({
 
   //console.log("accessStatus", accessStatus);
   
-  console.log("Welcome to the Protected World!");
+  console.log("Welcome to my Protected World!");
   console.log("Token", token);
   return (
     <div>

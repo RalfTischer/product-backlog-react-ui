@@ -16,7 +16,7 @@ class TaskAPI {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': token
             }
         });
         return await response.json();
