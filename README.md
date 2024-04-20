@@ -25,10 +25,9 @@ Application code and `README.md` documentation are _work in progress_.
 
 # TODO
 
-* Improve responsive design/ hamburger menu
 * Continue login
 * Perhaps change existing components to more generic ones
-* Allow multiple projects: new components List --> perhaps 
+* Implement multiple projects: new components List
 * Rethink where to place new tasks
 
 # Links
