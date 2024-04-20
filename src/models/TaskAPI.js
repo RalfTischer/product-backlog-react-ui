@@ -1,5 +1,5 @@
-//const TASK_API_URL = "https://ralftischer.pythonanywhere.com"
-const TASK_API_URL = "http://127.0.0.1:5000"
+const TASK_API_URL = "https://ralftischer.pythonanywhere.com"
+//const TASK_API_URL = "http://127.0.0.1:5000"
 //const TASK_API_URL = "http://192.168.2.111:5555"
 
 class TaskAPI {
