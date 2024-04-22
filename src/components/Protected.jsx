@@ -7,6 +7,7 @@ import TaskTable from "./TaskTable.jsx";
 
 function Protected({
                       token,
+                      plList,
                   }) {
   const [tasks, setTasks] = useState([]);   // Store the fetched data
 
