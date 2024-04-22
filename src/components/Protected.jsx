@@ -13,10 +13,10 @@ const IS_LOADING = "isLoading";
 const IS_LOADED = "isLoaded";
 const LOAD_ERROR = "loadError";
 
-function Protected({
-                      token,
+function Protected({  token,
                       plList,
                   }) {
+  
   const [tasks, setTasks] = useState([]);   // Store the fetched data
   const [accessStatus, setAccessStatus] = useState([LOGGED_IN]);
 
