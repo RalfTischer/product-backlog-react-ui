@@ -5,17 +5,26 @@ import TaskTable from "./TaskTable.jsx";
 // Hold `tasks`, `accessStatus`, `token`
 // Bridge to model `TaskAPI`
 
+// Access status:
+const NOT_LOGGED_IN = "notLoggedIn";
+const LOGGED_IN = "loggedIn";
+const LOGIN_ERROR = "loginError";
+const IS_LOADING = "isLoading";
+const IS_LOADED = "isLoaded";
+const LOAD_ERROR = "loadError";
+
 function Protected({
                       token,
                       plList,
                   }) {
   const [tasks, setTasks] = useState([]);   // Store the fetched data
+  const [accessStatus, setAccessStatus] = useState([LOGGED_IN]);
 
   const fetchTasks = async () => {
     // Fetch tasks
     const db = new TaskAPI();
     try {
-      // setAccessStatus(IS_LOADED);
+      setAccessStatus(IS_LOADING);
       console.log("fetchTasks, token:", token);
 
       let tasksFromDB = await db.getAllTasks(token, "pos");
@@ -33,7 +42,7 @@ function Protected({
       // Handle error
       //setAccessStatus(LOAD_ERROR);
     } finally {
-      //setAccessStatus(IS_LOADED); // Stop loading regardless of the outcome
+      setAccessStatus(IS_LOADED); // Stop loading regardless of the outcome
     }
   };
 
@@ -106,12 +115,13 @@ function Protected({
     console.log("fetch Tasks");
   }, []);
 
-  //console.log("accessStatus", accessStatus);
-  
   console.log("Welcome to my Protected World!");
   console.log("Token", token);
+  console.log("accessStatus", accessStatus);
+
   return (
-    <div>
+    <>
+      { accessStatus === IS_LOADED &&
       <TaskTable 
         tasks={tasks}
         handleCreate={handleCreate}
@@ -119,8 +129,11 @@ function Protected({
         handleDelete={handleDelete}
         handleMove={handleMove}
       />
-    </div>
-    
+      }
+      { accessStatus === IS_LOADING &&
+      <div>Loading....</div>
+      }
+    </>
   );
 }
 
