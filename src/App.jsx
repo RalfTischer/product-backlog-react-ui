@@ -14,6 +14,9 @@ const LOGIN_ERROR = "loginError";
 // const IS_LOADED = "isLoaded";
 // const LOAD_ERROR = "loadError";
 
+// TODO: Choose list by user
+let plList = 1;
+
 function App() {
   const [token, setToken] = useState("null"); // Store the received API token
   const [accessStatus, setAccessStatus] = useState(NOT_LOGGED_IN);
@@ -27,8 +30,9 @@ function App() {
     )
   }
 
-  const handleToggleLogin = () => {
+  const handleLogout = () => {
     setAccessStatus(NOT_LOGGED_IN);
+    setToken('null');
   }
 
   const handleLoginSuccess = (authToken) => {
@@ -54,11 +58,11 @@ function App() {
     <>
       <Navbar 
         isLoggedIn={accessStatus === LOGGED_IN}
-        handleToggleLogin={handleToggleLogin}
+        handleLogout={handleLogout}
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
-      {accessStatus === LOGGED_IN && <Protected token={token}/>}
+      {accessStatus === LOGGED_IN && <Protected plList={plList} token={token}/>}
     </>
 
   );

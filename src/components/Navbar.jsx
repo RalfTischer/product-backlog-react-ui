@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 const Navbar = ({  
                 isLoggedIn,
-                handleToggleLogin
+                handleLogout: handleLogout
               }) => {
 
   return (
     <div className="nav-bar">Navbar: 
         <div className="nav-action">
-            <button className="nav-button" onClick={handleToggleLogin}>{isLoggedIn ? "Logout" : "Login"}</button>
+            <button className="nav-button" onClick={handleLogout}>{isLoggedIn ? "Logout" : "Login"}</button>
         </div>
         {isLoggedIn && 
         <div className="nav-cell">
