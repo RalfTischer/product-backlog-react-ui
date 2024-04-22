@@ -1,13 +1,14 @@
 /*******************/
 /* Base definition */
 /*******************/
-
 html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: medium;
 }
 
+/**********/
 /* Navbar */
+/**********/
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -29,9 +30,26 @@ html {
   color: white;
 }
 
+/**********/
+/* Login */
+/**********/
+.login-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-around;
+  margin: 0.4em;
+  padding: 0.4rem;
+}
 
+login-cell {
+  display: table-cell;
+  padding: 0.4rem;
+}
 
+/*************/
 /* Task-Card */
+/*************/
 .task-card {
   align-items: center;
   justify-content: space-between;
