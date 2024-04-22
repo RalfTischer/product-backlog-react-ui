@@ -17,6 +17,7 @@ html {
   background-color: rgb(204, 198, 193);
   margin: 0.4em;
   padding: 0.4rem;
+  width: calc(100% - 0.8rem);
 }
 
 .nav-cell {
@@ -38,7 +39,7 @@ html {
   flex-direction: row;
   align-items: end;
   justify-content: space-around;
-  margin: 0.4em;
+  margin: 0.4rem;
   padding: 0.4rem;
 }
 
@@ -54,8 +55,8 @@ login-cell {
   align-items: center;
   justify-content: space-between;
   background-color: rgb(236, 233, 230);
-  margin: 0.4em;
-  width: 100%
+  margin: 0.4rem;
+  width: calc(100% - 0.8rem);
 }
 
 .tasks {
@@ -82,16 +83,17 @@ login-cell {
 .task-button {
   display: table-cell;
   height: 2em;
-  min-width:3.6em;
   vertical-align: middle;
   margin-left: 0.2em;
   margin-right: 0.2em;
 }
 
 /* Action button */
+
 .task-actions, .task-action-cell {
   display: flex;
 }
+
 
 .task-actions {
   width: 50px;
@@ -230,6 +232,7 @@ login-cell {
   }
 
   .task-action-cell {
+    display: flex;
     flex-wrap: nowrap;
   }
 }
