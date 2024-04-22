@@ -48,8 +48,8 @@ const Login = ({  db,
   }, [loginStatus, token]);
   
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="login-bar" onSubmit={handleSubmit}>
+      <label className="login-cell">
         Username:
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       </label>
