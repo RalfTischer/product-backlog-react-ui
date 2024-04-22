@@ -57,7 +57,7 @@ const TaskDisplay = ({  myKey,
           <div className="task-cell task-time">{myTask.time}</div>
           <div className="task-cell task-status">{myTask.status}</div>
           <div className="task-cell task-actions">
-            <button onClick={toggleTaskActions}>
+            <button className="task-button" onClick={toggleTaskActions}>
               &#9776;
             </button>
           </div>
