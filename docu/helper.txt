@@ -1,0 +1,31 @@
+# Login
+
+$Url = "http://127.0.0.1:5000/login"
+
+$Body = @{
+username = "ralf"
+password = "1234"
+}
+
+# POST request with a JSON payload
+$token = Invoke-RestMethod -Uri $Url -Method Post -Body ($Body | ConvertTo-Json) -ContentType "application/json"
+
+
+# Lists
+
+$Url = "http://127.0.0.1:5000/lists"
+
+$response = Invoke-RestMethod -Uri $Url -Method GET -Headers @{
+    'Content-Type' = 'application/json'
+    'Authorization' = $token
+}
+
+
+# Tasks
+
+$Url = "http://127.0.0.1:5000/tasks"
+
+$response = Invoke-RestMethod -Uri $Url -Method GET -Headers @{
+    'Content-Type' = 'application/json'
+    'Authorization' = $token
+}
