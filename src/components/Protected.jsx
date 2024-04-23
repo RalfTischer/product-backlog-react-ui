@@ -27,7 +27,7 @@ function Protected({  token,
       setAccessStatus(IS_LOADING);
       console.log("fetchTasks, token:", token);
 
-      let tasksFromDB = await db.getAllTasks(token, "pos");
+      let tasksFromDB = await db.getAllTasks(token, plList, "pos");
       console.log(tasksFromDB);
 
       // Make sure to have sequential pos numbers
