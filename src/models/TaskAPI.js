@@ -1,5 +1,5 @@
 const TASK_API_URL = "https://ralftischer.pythonanywhere.com"
-//const TASK_API_URL = "http://127.0.0.1:5000"
+// const TASK_API_URL = "http://127.0.0.1:5000"
 //const TASK_API_URL = "http://192.168.2.111:5555"
 
 class TaskAPI {
@@ -7,12 +7,21 @@ class TaskAPI {
         this.baseURL = baseURL;
     }
 
-    async getAllTasks(token, sortBy = null ) {
-        let q_sortBy = "";
+    async getAllTasks(token, plList = 0, sortBy = null ) {
+        
+        let url = `${this.baseURL}/tasks`;
+
+        // Add list
+        url += "?list_id=" + plList; 
+        
+        // Add sort by
         if (sortBy) {
-            q_sortBy = "?sort_by=" + sortBy;
+            url += "&sort_by=" + sortBy;
         };
-        const response = await fetch(`${this.baseURL}/tasks${q_sortBy}`, {
+
+        console.log("url:", url);
+
+        const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
