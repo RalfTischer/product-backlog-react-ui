@@ -4,6 +4,7 @@ import Task from './Task';
 // Hold: editId, actionId
   
 const TaskTable = ({  tasks, 
+                      plList,
                       handleCreate,
                       handleUpdate,
                       handleDelete,
@@ -52,7 +53,7 @@ const TaskTable = ({  tasks,
   }
 
   const onCreate = () => {
-    tasks.push({id: 0});
+    tasks.push({id: 0, list_id: plList});
     setEditId(0);
   };
 
