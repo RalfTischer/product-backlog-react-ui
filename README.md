@@ -25,7 +25,8 @@ Application code and `README.md` documentation are _work in progress_.
 
 # TODO
 
-* Change existing components to more generic ones
+* Add component `ItemActions`
+* In App Render `TasksProtected` (renamed) or `ListsProtected` (moved) 
 * Improve Login responsive design
 * Add load screen
 * Implement multiple projects: new components List
