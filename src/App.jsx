@@ -10,13 +10,9 @@ import Navbar from "./components/Navbar.jsx";
 const NOT_LOGGED_IN = "notLoggedIn";
 const LOGGED_IN = "loggedIn";
 const LOGIN_ERROR = "loginError";
-const LIST_CHOSEN = "listChosen"
 // const IS_LOADING = "isLoading";
 // const IS_LOADED = "isLoaded";
 // const LOAD_ERROR = "loadError";
-
-// TODO: Choose list by user
-let plList = 1;
 
 function App() {
   const [token, setToken] = useState("null"); // Store the received API token
@@ -63,8 +59,7 @@ function App() {
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
-      {accessStatus === LIST_CHOSEN && <Protected plList={plList} token={token}/>}
-      {accessStatus === LOGGED_IN && <Protected plList={plList} token={token}/>}
+      {accessStatus === LOGGED_IN && <Protected token={token}/>}
     </>
 
   );
