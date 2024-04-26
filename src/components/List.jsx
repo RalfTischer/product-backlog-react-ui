@@ -6,6 +6,7 @@ const List = ({ myKey,
                 myList,
                 editable,
                 actionable, 
+                handleSelect,
                 handleDelete,
                 handleMove,
                 handleEdit,
@@ -32,6 +33,7 @@ const List = ({ myKey,
             myKey={myKey}
             myList={myList}
             actionable={actionable} 
+            handleSelect={handleSelect}
             handleDelete={handleDelete}
             handleMove={handleMove}
             handleEdit={handleEdit}

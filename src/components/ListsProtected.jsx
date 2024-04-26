@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TaskAPI from "../models/TaskAPI.js";
 import ListTable from "./ListTable.jsx";
 
-// Hold `lists`, `listId`, `accessStatus`
+// Hold `lists`, `accessStatus`
 // Bridge to model `TaskAPI`
 
 // Access status:
@@ -16,11 +16,11 @@ const IS_LOADED_LISTS = "IS_LOADED_LISTS";
 const LIST_CHOSEN = "LIST_CHOSEN";
 const LOAD_ERROR = "LOAD_ERROR";
 
-function ListsProtected({  token,
+function ListsProtected({ token,
+                          handleSelect,
                   }) {
   
   const [lists, setLists] = useState([]);   // Store the fetched lists
-  const [listId, setListId] = useState(-1); // Store current list id
   const [accessStatus, setAccessStatus] = useState([LOGGED_IN]);
 
   const fetchLists = async () => {
@@ -42,12 +42,6 @@ function ListsProtected({  token,
     } finally {
       setAccessStatus(IS_LOADED_LISTS); // Stop loading regardless of the outcome
     }
-  };
-
-  const handleChooseList = (myList) => {
-    // Choose a list
-    setListId(myList.id);
-    setAccessStatus(LIST_CHOSEN);
   };
 
   /* TODO
@@ -129,6 +123,7 @@ function ListsProtected({  token,
       { accessStatus == IS_LOADED_LISTS &&
       <ListTable 
         lists={lists}
+        handleSelect={handleSelect}
       />
       }
       { (accessStatus == IS_LOADING_LISTS) &&
