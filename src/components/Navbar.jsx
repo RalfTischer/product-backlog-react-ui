@@ -6,9 +6,9 @@ const Navbar = ({ isLoggedIn,
                }) => {
 
   return (
-    <div className="nav-bar">Navbar: 
+    <div className="nav-bar">
         <div className="nav-action">
-            <button className="nav-button" onClick={handleLogout}>{isLoggedIn ? "Logout" : "Login"}</button>
+            <button className="nav-button" onClick={handleLogout}>{isLoggedIn ? "Logout" : ""}</button>
         </div>
         {isLoggedIn && 
         <div className="nav-cell">
