@@ -16,8 +16,6 @@ const ListDisplay = ({  myKey,
   };
 
   const onSelect = () => {
-    // TODO
-    console.log("Select detected for list", myList.id);
     handleSelect(myList);
   };
 
@@ -45,11 +43,13 @@ const ListDisplay = ({  myKey,
           </button>
         </div>
       </div>
-      <ActionButtons 
-        onDelete={onDelete}
-        onMove={onMove}
-        onEdit={onEdit}
-      />
+      <div className={`task-cell task-action-cell ${actionable ? '' : 'hide-on-small'}`}>
+        <ActionButtons 
+          onDelete={onDelete}
+          onMove={onMove}
+          onEdit={onEdit}
+        />
+      </div>
     </div>
   )
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ActionButtons from './ActionButtons.jsx';
 
 const TaskDisplay = ({  myKey,
                         myTask,
@@ -7,43 +8,22 @@ const TaskDisplay = ({  myKey,
                         handleMove, 
                         handleActionable, 
                         handleEdit }) => {
-
-  /* Hamburger menu in state :                       
-  screen	          small	small	big	  big
-  actionable	      false	true	false	true
-  task-actions	    flex	none	none	none
-  task-action-cell	none	flex	flex	flex
-  */
   
   const toggleTaskActions = () => {
     actionable = !actionable;
     handleActionable(myTask);
   };
 
-  const onEdit = () => {
-    // Edit clicked
-    handleEdit(myTask);
-  };
-
   const onDelete = () => {
-    // Delete clicked
     handleDelete(myTask);
-  };
+  }
+  const onMove = (positions) => {
+    handleMove(myTask, positions);
+  }
 
-  const onDownwards = () => {
-    // Downwards clicked
-    handleMove(myTask, 1);
-  };
-
-  const onUpwards = () => {
-    // Upwards clicked
-    handleMove(myTask, -1);
-  };
-
-  const onToTop = () => {
-    // ToTop clicked
-    handleMove(myTask, -999999);
-  };
+  const onEdit = () => {
+    handleEdit(myTask);
+  }
 
   return (
     <div className="task-card" key={myKey} onDoubleClick={onEdit}>
@@ -65,13 +45,11 @@ const TaskDisplay = ({  myKey,
       </div>
       
       <div className={`task-cell task-action-cell ${actionable ? '' : 'hide-on-small'}`}>
-        <div className="task-action">
-          <button className="task-button" onClick={onEdit}>|...|</button>
-          <button className="task-button" onClick={onDelete}>|←</button>
-          <button className="task-button" onClick={onDownwards}>▼</button>
-          <button className="task-button" onClick={onUpwards}>▲</button>
-          <button className="task-button" onClick={onToTop}>▲▲</button>
-        </div>
+        <ActionButtons 
+          onDelete={onDelete}
+          onMove={onMove}
+          onEdit={onEdit}
+        />
       </div>
     </div>
   )
