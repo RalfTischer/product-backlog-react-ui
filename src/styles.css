@@ -37,10 +37,11 @@ html {
 .login-bar {
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-around;
   margin: 0.4rem;
   padding: 0.4rem;
+  width: calc(100% - 0.8rem);
 }
 
 login-cell {
@@ -57,7 +58,6 @@ login-cell {
   justify-content: space-between;
   width: calc(100% - 0.8rem);
 }
-
 
 /*************/
 /* Task-Card */
