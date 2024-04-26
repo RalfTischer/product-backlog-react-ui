@@ -36,7 +36,10 @@ function App() {
     setAccessStatus(LIST_CHOSEN);
   };
 
-
+  const handleList = () => {
+    setListId(-1);
+    setAccessStatus(LOGGED_IN);
+  }
 
   const handleLogout = () => {
     setAccessStatus(NOT_LOGGED_IN);
@@ -65,16 +68,15 @@ function App() {
   return (
     <>
       <Navbar 
-        isLoggedIn={accessStatus === LOGGED_IN}
+        isLoggedIn={accessStatus !== NOT_LOGGED_IN}
         handleLogout={handleLogout}
+        handleList={handleList}
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
       {accessStatus === LOGGED_IN && <ListsProtected handleSelect={handleSelectList} token={token}/>}
       {accessStatus === LIST_CHOSEN && <TasksProtected listId={listId} token={token}/>}
     </>
-    
-
   );
 }
 
