@@ -25,8 +25,7 @@ Application code and `README.md` documentation are _work in progress_.
 
 # TODO
 
-* Add component `ItemActions`
-* In App Render `TasksProtected` (renamed) or `ListsProtected` (moved) 
+* CSS style ListEdit
 * Improve Login responsive design
 * Add load screen
 * Implement multiple projects: new components List
