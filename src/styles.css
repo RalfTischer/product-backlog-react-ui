@@ -51,6 +51,13 @@ login-cell {
 /*************/
 /* List-Card */
 /*************/
+.list-info {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 0.8rem);
+}
+
 
 /*************/
 /* Task-Card */
