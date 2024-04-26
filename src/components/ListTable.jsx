@@ -3,7 +3,8 @@ import List from './List';
 
 // Hold: editId, actionId
   
-const ListTable = ({  lists, 
+const ListTable = ({  lists,
+                      handleSelect,
                       handleCreate,
                       handleUpdate,
                       handleDelete,
@@ -69,11 +70,12 @@ const ListTable = ({  lists,
 
       {lists.map(myList => (
         <div className="task-card">
-          <List 
+          <List
             key={myList.id}
             myList={myList} 
             editable={editId === myList.id}
             actionable={actionId === myList.id}
+            handleSelect={handleSelect}
             handleDelete={handleDelete}
             handleMove={handleMove}
             handleEdit={handleEdit}
