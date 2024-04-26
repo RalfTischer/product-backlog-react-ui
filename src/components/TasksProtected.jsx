@@ -6,18 +6,9 @@ import TaskTable from "./TaskTable.jsx";
 // Bridge to model `TaskAPI`
 
 // Access status:
-const NOT_LOGGED_IN = "NOT_LOGGED_IN";
 const LOGGED_IN = "LOGGED_IN";
-const LOGIN_ERROR = "LOGIN_ERROR";
 const IS_LOADING_TASKS = "IS_LOADING_TASKS";
 const IS_LOADED_TASKS = "IS_LOADED_TASKS";
-const IS_LOADING_LISTS = "IS_LOADING_LISTS";
-const IS_LOADED_LISTS = "IS_LOADED_LISTS";
-const LIST_CHOSEN = "LIST_CHOSEN";
-const LOAD_ERROR = "LOAD_ERROR";
-
-//TODO
-const listId = 1;
 
 function TasksProtected({ listId,
                           token,
@@ -131,7 +122,7 @@ function TasksProtected({ listId,
         handleMove={handleMoveTask}
       />
       }
-      { (accessStatus == IS_LOADING_TASKS) &&
+      { (accessStatus === IS_LOADING_TASKS) &&
       <div>Loading....</div>
       }
     </>
@@ -139,10 +130,3 @@ function TasksProtected({ listId,
 }
 
 export default TasksProtected;
-
-        /* handleChoose={handleChooseList}
-        handleCreate={handleCreateList}
-        handleUpdate={handleUpdateList}
-        handleDelete={handleDeleteList}
-        handleMove={handleMoveList} */
-
