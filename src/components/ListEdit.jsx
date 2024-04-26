@@ -36,7 +36,7 @@ const ListEdit = ({ myKey,
     <div className="task-card" key={myKey}>
       <div className="task-info">
         <div className="task-info-main">
-          <div className="task-cell task-task"><textarea name="task" type="text" value={editedList.list} onChange={handleInputChange}></textarea></div>
+          <div className="task-cell task-task"><textarea name="list" type="text" value={editedList.list} onChange={handleInputChange}></textarea></div>
         </div>
         <div className="task-info-sub">
           <div className="task-cell task-actions">
