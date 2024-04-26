@@ -6,15 +6,9 @@ import ListTable from "./ListTable.jsx";
 // Bridge to model `TaskAPI`
 
 // Access status:
-const NOT_LOGGED_IN = "NOT_LOGGED_IN";
 const LOGGED_IN = "LOGGED_IN";
-const LOGIN_ERROR = "LOGIN_ERROR";
-const IS_LOADING_TASKS = "IS_LOADING_TASKS";
-const IS_LOADED_TASKS = "IS_LOADED_TASKS";
 const IS_LOADING_LISTS = "IS_LOADING_LISTS";
 const IS_LOADED_LISTS = "IS_LOADED_LISTS";
-const LIST_CHOSEN = "LIST_CHOSEN";
-const LOAD_ERROR = "LOAD_ERROR";
 
 function ListsProtected({ token,
                           handleSelect,
@@ -44,14 +38,13 @@ function ListsProtected({ token,
     }
   };
 
-  /* TODO
-  const handleCreateList = async (myTask) => {
-    // Create new task in database
+  const handleCreateList = async (myList) => {
+    // Create new list in database
     try {
       const db = new TaskAPI();
-      const newId = await db.createTask(token, myTask);
-      const newObject = { ...myTask, id: newId }; 
-      setLists([...tasks, newObject]);
+      const newId = await db.createList(token, myList);
+      const newObject = { ...myList, id: newId }; 
+      setLists([...lists, newObject]);
     } catch (error) {
       // Handle any errors that occurred during the creation
       console.error('Error creating new item:', error);
@@ -59,29 +52,30 @@ function ListsProtected({ token,
     } 
   };
 
-  const handleUpdateList = (myTask) => {
-    // Update task with new data
+  const handleUpdateList = (myList) => {
+    // Update list with new data
     const db = new TaskAPI();
-    const updatedLists = [...tasks];
-    const taskIndex = updatedLists.findIndex(task => task.id === myTask.id);
-    if (taskIndex !== -1) {
-        updatedLists[taskIndex] = myTask;
+    const updatedLists = [...lists];
+    const listIndex = updatedLists.findIndex(list => list.id === myList.id);
+    if (listIndex !== -1) {
+        updatedLists[listIndex] = myList;
         setLists(updatedLists);
-        db.updateTask(myTask.id, myTask);
+        db.updateList(myList.id, myList);
     }
   }
   
-  const handleDeleteList = (myTask) => {
-    // Delete task
-    if (window.confirm("Really delete task " + myTask.id + " [" + myTask.task +"]?")) {
+  const handleDeleteList = (myList) => {
+    // Delete list
+    if (window.confirm("Really delete list " + myList.id + " [" + myList.list +"]?")) {
       const db = new TaskAPI();
-      let updatedLists = [...tasks];
-      updatedLists = updatedLists.filter(task => task.id !== myTask.id);
-      db.deleteTask(myTask.id);
+      let updatedLists = [...lists];
+      updatedLists = updatedLists.filter(list => list.id !== myList.id);
+      db.deleteList(myList.id);
       setLists(updatedLists);
     };
   };
 
+  /*
   const handleMoveList = (myTask, positions) => {
     // Move position of task
     // Shift position of myTask in array
@@ -120,13 +114,16 @@ function ListsProtected({ token,
 
   return (
     <>
-      { accessStatus == IS_LOADED_LISTS &&
+      { accessStatus === IS_LOADED_LISTS &&
       <ListTable 
         lists={lists}
         handleSelect={handleSelect}
+        handleCreate={handleCreateList}
+        handleUpdate={handleUpdateList}
+        handleDelete={handleDeleteList}
       />
       }
-      { (accessStatus == IS_LOADING_LISTS) &&
+      { (accessStatus === IS_LOADING_LISTS) &&
       <div>Loading....</div>
       }
     </>
@@ -134,10 +131,3 @@ function ListsProtected({ token,
 }
 
 export default ListsProtected;
-
-        /* handleChoose={handleChooseList}
-        handleCreate={handleCreateList}
-        handleUpdate={handleUpdateList}
-        handleDelete={handleDeleteList}
-        handleMove={handleMoveList} */
-
