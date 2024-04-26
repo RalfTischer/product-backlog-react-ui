@@ -5,12 +5,13 @@ import TasksProtected from "./components/TasksProtected.jsx";
 import Login from "./components/Login.jsx";
 import Navbar from "./components/Navbar.jsx";
 
-// Hold `accessStatus`, `token`
+// Hold `accessStatus`, `token`, `listId`
 
 // Access status:
-const NOT_LOGGED_IN = "notLoggedIn";
-const LOGGED_IN = "loggedIn";
-const LOGIN_ERROR = "loginError";
+const NOT_LOGGED_IN = "NOT_LOGGED_IN";
+const LOGGED_IN = "LOGGED_IN";
+const LOGIN_ERROR = "LOGIN_ERROR";
+const LIST_CHOSEN ="LIST_CHOSEN"
 // const IS_LOADING = "isLoading";
 // const IS_LOADED = "isLoaded";
 // const LOAD_ERROR = "loadError";
@@ -18,6 +19,7 @@ const LOGIN_ERROR = "loginError";
 function App() {
   const [token, setToken] = useState("null"); // Store the received API token
   const [accessStatus, setAccessStatus] = useState(NOT_LOGGED_IN);
+  const [listId, setListId] = useState(-1);
 
   const handleError = (error) => {
     return (
@@ -27,6 +29,14 @@ function App() {
       </div>
     )
   }
+
+  const handleSelectList = (myList) => {
+    // Choose a list
+    setListId(myList.id);
+    setAccessStatus(LIST_CHOSEN);
+  };
+
+
 
   const handleLogout = () => {
     setAccessStatus(NOT_LOGGED_IN);
@@ -60,8 +70,10 @@ function App() {
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
-      {accessStatus === LOGGED_IN && <ListsProtected token={token}/>}
+      {accessStatus === LOGGED_IN && <ListsProtected handleSelect={handleSelectList} token={token}/>}
+      {accessStatus === LIST_CHOSEN && <TasksProtected listId={listId} token={token}/>}
     </>
+    
 
   );
 }
