@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ListDisplay = ({  myKey,
                         myList,
@@ -7,17 +7,15 @@ const ListDisplay = ({  myKey,
                         handleMove, 
                         handleActionable, 
                         handleEdit }) => {
-
-  /* Hamburger menu in state :                       
-  screen	          small	small	big	  big
-  actionable	      false	true	false	true
-  task-actions	    flex	none	none	none
-  task-action-cell	none	flex	flex	flex
-  */
   
   const toggleListActions = () => {
     actionable = !actionable;
     handleActionable(myList);
+  };
+
+  const onSelect = () => {
+    // TODO
+    console.log("Select detected for list", myList.id);
   };
 
   const onEdit = () => {
@@ -46,21 +44,21 @@ const ListDisplay = ({  myKey,
   };
 
   return (
-    <div className="task-card" key={myKey} onDoubleClick={onEdit}>
+    <div className="list-card" key={myKey} onDoubleClick={onEdit}>
       <div className="task-info">
-        <div className="task-info-main">
-          <div className="task-cell task-task">{myList.list}</div>
-        </div>
-        <div className="task-info-sub">
-          <div className="task-cell task-actions">
-            <button className="task-button" onClick={toggleListActions}>
-              &#9776;
-            </button>
-          </div>
-        </div>
+        <div className="list-cell list-list">{myList.list}</div>
+        <div className="list-cell list-actions">
+          <button className="task-button" onClick={toggleListActions}>
+            &#9776;
+          </button>
+          <button className="task-button" onClick={onSelect}>
+            Select
+          </button>
+
+      </div>
       </div>
       
-      <div className={`task-cell task-action-cell ${actionable ? '' : 'hide-on-small'}`}>
+      <div className={`list-cell task-action-cell ${actionable ? '' : 'hide-on-small'}`}>
         <div className="task-action">
           <button className="task-button" onClick={onEdit}>|...|</button>
           <button className="task-button" onClick={onDelete}>|←</button>
