@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TaskAPI from "./models/TaskAPI.js";
-import Protected from "./components/Protected.jsx";
+import ListsProtected from "./components/ListsProtected.jsx";
+import TasksProtected from "./components/TasksProtected.jsx";
 import Login from "./components/Login.jsx";
 import Navbar from "./components/Navbar.jsx";
 
@@ -59,7 +60,7 @@ function App() {
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
-      {accessStatus === LOGGED_IN && <Protected token={token}/>}
+      {accessStatus === LOGGED_IN && <ListsProtected token={token}/>}
     </>
 
   );
