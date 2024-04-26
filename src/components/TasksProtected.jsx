@@ -19,7 +19,8 @@ const LOAD_ERROR = "LOAD_ERROR";
 //TODO
 const listId = 1;
 
-function TasksProtected({  token,
+function TasksProtected({ listId,
+                          token,
                   }) {
   
   const [tasks, setTasks] = useState([]);   // Store the fetched tasks
