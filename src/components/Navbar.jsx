@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Navbar = ({  isLoggedIn,
-                   handleLogout: handleLogout
+const Navbar = ({ isLoggedIn,
+                  handleList,
+                  handleLogout,
                }) => {
 
   return (
@@ -11,7 +12,7 @@ const Navbar = ({  isLoggedIn,
         </div>
         {isLoggedIn && 
         <div className="nav-cell">
-            <button className="nav-button">Lists</button>
+            <button className="nav-button" onClick={handleList}>Lists</button>
         </div>}
     </div>
   );
