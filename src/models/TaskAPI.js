@@ -58,9 +58,33 @@ class TaskAPI {
         return response.json();
     }
 
+    async createList(token, data) {
+        const response = await fetch(`${this.baseURL}/lists`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
     async createTask(token, data) {
         const response = await fetch(`${this.baseURL}/tasks`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
+    async updateList(token, id, data) {
+        const response = await fetch(`${this.baseURL}/lists?ROWID=${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
@@ -78,6 +102,17 @@ class TaskAPI {
                 'Authorization': token
             },
             body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
+    async deleteList(token, id) {
+        const response = await fetch(`${this.baseURL}/lists?ROWID=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
         });
         return response.json();
     }
