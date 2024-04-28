@@ -42,10 +42,11 @@ html {
   margin: 0.4rem;
   padding: 0.4rem;
   width: calc(100% - 0.8rem);
+  width: 200pxs;
 }
 
-login-cell {
-  display: table-cell;
+.login-cell {
+  width: 30%;
   padding: 0.4rem;
 }
 
