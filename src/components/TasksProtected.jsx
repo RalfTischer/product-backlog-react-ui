@@ -12,7 +12,7 @@ const IS_LOADED_TASKS = "IS_LOADED_TASKS";
 
 function TasksProtected({ listId,
                           token,
-                  }) {
+                        }) {
   
   const [tasks, setTasks] = useState([]);   // Store the fetched tasks
   const [accessStatus, setAccessStatus] = useState([LOGGED_IN]);
@@ -23,7 +23,6 @@ function TasksProtected({ listId,
     try {
       setAccessStatus(IS_LOADING_TASKS);
       let tasksFromDB = await db.getAllTasks(token, listId, "pos");
-      console.log("tasks loaded", tasksFromDB);
 
       // Make sure to have sequential pos numbers
       tasksFromDB.sort((a, b) => a.pos - b.pos).forEach((task, index) => {
@@ -110,11 +109,11 @@ function TasksProtected({ listId,
       console.log("Fetching tasks...");
       setAccessStatus(IS_LOADING_TASKS);
       fetchTasks();
-  }, []);
+  }, );
 
   return (
     <>
-      { accessStatus == IS_LOADED_TASKS &&
+      { accessStatus === IS_LOADED_TASKS &&
       <TaskTable 
         tasks={tasks}
         listId={listId}
