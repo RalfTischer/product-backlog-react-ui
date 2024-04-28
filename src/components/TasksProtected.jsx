@@ -42,8 +42,10 @@ function TasksProtected({ listId,
     // Create new task in database
     try {
       const db = new TaskAPI();
+      myTask.list_id = listId;
       const newId = await db.createTask(token, myTask);
-      const newObject = { ...myTask, id: newId }; 
+      const newObject = { ...myTask, id: newId}; 
+      
       setTasks([...tasks, newObject]);
     } catch (error) {
       // Handle any errors that occurred during the creation
@@ -60,7 +62,7 @@ function TasksProtected({ listId,
     if (taskIndex !== -1) {
         updatedTasks[taskIndex] = myTask;
         setTasks(updatedTasks);
-        db.updateTask(myTask.id, myTask);
+        db.updateTask(token, myTask.id, myTask);
     }
   }
   
@@ -70,7 +72,7 @@ function TasksProtected({ listId,
       const db = new TaskAPI();
       let updatedTasks = [...tasks];
       updatedTasks = updatedTasks.filter(task => task.id !== myTask.id);
-      db.deleteTask(myTask.id);
+      db.deleteTask(token, myTask.id);
       setTasks(updatedTasks);
     };
   };

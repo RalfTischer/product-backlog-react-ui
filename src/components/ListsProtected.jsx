@@ -60,7 +60,7 @@ function ListsProtected({ token,
     if (listIndex !== -1) {
         updatedLists[listIndex] = myList;
         setLists(updatedLists);
-        db.updateList(myList.id, myList);
+        db.updateList(token, myList.id, myList);
     }
   }
   
@@ -70,7 +70,7 @@ function ListsProtected({ token,
       const db = new TaskAPI();
       let updatedLists = [...lists];
       updatedLists = updatedLists.filter(list => list.id !== myList.id);
-      db.deleteList(myList.id);
+      db.deleteList(token, myList.id);
       setLists(updatedLists);
     };
   };
