@@ -49,15 +49,21 @@ const Login = ({  db,
   
   return (
     <form className="login-bar" onSubmit={handleSubmit}>
-      <label className="login-cell">
-        Username:
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      </label>
-      <label className="login-cell">
-        Password:
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <button type="submit">Login</button>
+      <div className="login-cell">
+        <label>
+          Username:
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </label>
+      </div>
+      <div className="login-cell">
+        <label>
+          Password:
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </label>
+      </div>
+      <div className="login-cell">
+        <button type="submit">Login</button>
+        </div>
     </form>
   );
 }

@@ -37,16 +37,15 @@ html {
 .login-bar {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  align-content: space-between;
   margin: 0.4rem;
   padding: 0.4rem;
   width: calc(100% - 0.8rem);
-  width: 200pxs;
 }
 
 .login-cell {
-  width: 30%;
   padding: 0.4rem;
 }
 
