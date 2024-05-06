@@ -23,14 +23,6 @@ Application code and `README.md` documentation are _work in progress_.
 
 <!-- MD-TOC END -->
 
-# TODO
-
-* CSS style ListEdit
-* Improve Login responsive design
-* Add load screen
-* Implement multiple projects: new components List
-* Rethink where to place new tasks
-
 # Links
 
 * Product Backlog UI on GitHub Pages: [https://ralftischer.github.io/product-backlog-react-ui/](https://ralftischer.github.io/product-backlog-react-ui/)
