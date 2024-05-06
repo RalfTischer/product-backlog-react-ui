@@ -109,7 +109,7 @@ function TasksProtected({ listId,
       console.log("Fetching tasks...");
       setAccessStatus(IS_LOADING_TASKS);
       fetchTasks();
-  }, );
+  }, []);
 
   return (
     <>
