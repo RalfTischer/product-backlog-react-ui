@@ -9,7 +9,6 @@ Application code and `README.md` documentation are _work in progress_.
 
 ## Table of Contents
 
-- [TODO](#todo)
 - [Links](#links)
 - [Technical Background](#technical-background)
   - [React Components](#react-components)
