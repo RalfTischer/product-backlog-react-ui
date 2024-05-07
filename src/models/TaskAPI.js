@@ -83,7 +83,7 @@ class TaskAPI {
     }
 
     async updateList(token, id, data) {
-        const response = await fetch(`${this.baseURL}/lists?ROWID=${id}`, {
+        const response = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +95,8 @@ class TaskAPI {
     }
 
     async updateTask(token, id, data) {
-        const response = await fetch(`${this.baseURL}/tasks?ROWID=${id}`, {
+        console.log("Updating with: ", data);
+        const response = await fetch(`${this.baseURL}/tasks?rowid=${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -107,7 +108,7 @@ class TaskAPI {
     }
 
     async deleteList(token, id) {
-        const response = await fetch(`${this.baseURL}/lists?ROWID=${id}`, {
+        const response = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -118,7 +119,7 @@ class TaskAPI {
     }
 
     async deleteTask(token, id) {
-        const response = await fetch(`${this.baseURL}/tasks?ROWID=${id}`, {
+        const response = await fetch(`${this.baseURL}/tasks?rowid=${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
