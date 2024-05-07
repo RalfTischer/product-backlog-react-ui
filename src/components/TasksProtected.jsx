@@ -53,7 +53,7 @@ function TasksProtected({ listId,
     } 
   };
 
-  const handleUpdateTask = (myTask) => {
+  const handleUpdateTask = async (myTask) => {
     // Update task with new data
     const db = new TaskAPI();
     const updatedTasks = [...tasks];
@@ -65,7 +65,7 @@ function TasksProtected({ listId,
     }
   }
   
-  const handleDeleteTask = (myTask) => {
+  const handleDeleteTask = async (myTask) => {
     // Delete task
     if (window.confirm("Really delete task " + myTask.id + " [" + myTask.task +"]?")) {
       const db = new TaskAPI();
@@ -76,7 +76,7 @@ function TasksProtected({ listId,
     };
   };
 
-  const handleMoveTask = (myTask, positions) => {
+  const handleMoveTask = async (myTask, positions) => {
     // Move position of task
     // Shift position of myTask in array
     let updatedTasks = [...tasks];
