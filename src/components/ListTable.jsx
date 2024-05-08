@@ -58,13 +58,11 @@ const ListTable = ({  lists,
   };
 
   return (
-    <div className="tasks">
-      <div className="task-card tasks-caption">
-        <div className="task-info">
-          <div className="task-info-main">
-            <div className="task-cell task-task">List</div>
-            <div className="task-cell task-actions"><button className="task-button" onClick={onCreate}>*</button></div>
-          </div>
+    <div className="list-card">
+      <div className="list-info tasks-caption">
+        <div className="list-info">
+          <div className="list-cell list-task">Lists</div>
+          <div className="list-cell list-actions"><button className="task-button" onClick={onCreate}>*</button></div>
         </div>
         <hr className="task-line-caption"></hr>
       </div>
