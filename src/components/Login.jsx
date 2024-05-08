@@ -16,9 +16,6 @@ const Login = ({  db,
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    console.log(`Logging in with ${username}, ${password}`);
-    
     try {
       const response = await db.login(username, password);
       console.log('Received response', response);
