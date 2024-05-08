@@ -108,14 +108,25 @@ class TaskAPI {
     }
 
     async deleteList(token, id) {
-        const response = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
+        // Delete related tasks
+        await fetch(`${this.baseURL}/tasks?list_id=${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
             },
         });
-        return response.json();
+
+        // Delete list itself
+        const responseList = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+        });
+
+        return responseList.json();
     }
 
     async deleteTask(token, id) {
