@@ -66,7 +66,7 @@ function ListsProtected({ token,
   
   const handleDeleteList = (myList) => {
     // Delete list
-    if (window.confirm("Really delete list " + myList.id + " [" + myList.list +"]?")) {
+    if (window.confirm("Really delete list [" + myList.list +"] with all related tasks?")) {
       const db = new TaskAPI();
       let updatedLists = [...lists];
       updatedLists = updatedLists.filter(list => list.id !== myList.id);
