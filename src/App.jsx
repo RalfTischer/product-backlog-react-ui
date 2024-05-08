@@ -3,6 +3,7 @@ import TaskAPI from "./models/TaskAPI.js";
 import ListsProtected from "./components/ListsProtected.jsx";
 import TasksProtected from "./components/TasksProtected.jsx";
 import Login from "./components/Login.jsx";
+import ProfileEdit from "./components/ProfileEdit.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 // Hold `accessStatus`, `token`, `listId`
@@ -11,7 +12,8 @@ import Navbar from "./components/Navbar.jsx";
 const NOT_LOGGED_IN = "NOT_LOGGED_IN";
 const LOGGED_IN = "LOGGED_IN";
 const LOGIN_ERROR = "LOGIN_ERROR";
-const LIST_CHOSEN ="LIST_CHOSEN"
+const LIST_CHOSEN ="LIST_CHOSEN";
+const EDIT_PROFILE = "EDIT_PROFILE";
 // const IS_LOADING = "isLoading";
 // const IS_LOADED = "isLoaded";
 // const LOAD_ERROR = "loadError";
@@ -46,6 +48,11 @@ function App() {
     setToken('null');
   }
 
+  const handleProfile = () => {
+    console.log("Edit Profile");
+    setAccessStatus(EDIT_PROFILE);
+  }
+
   const handleLoginSuccess = (authToken) => {
     // User login
     console.log("handleLogin: Reveived authToken", authToken);
@@ -69,13 +76,15 @@ function App() {
     <>
       <Navbar 
         isLoggedIn={accessStatus !== NOT_LOGGED_IN}
-        handleLogout={handleLogout}
         handleList={handleList}
+        handleProfile={handleProfile}
+        handleLogout={handleLogout}
       />
       {accessStatus === NOT_LOGGED_IN && <Login db={db} handleLoginSuccess={handleLoginSuccess} />}
       {accessStatus === LOGIN_ERROR && <div>Login Error</div>}
       {accessStatus === LOGGED_IN && <ListsProtected handleSelect={handleSelectList} token={token}/>}
       {accessStatus === LIST_CHOSEN && <TasksProtected listId={listId} token={token}/>}
+      {accessStatus === EDIT_PROFILE && <ProfileEdit  db={db} token={token} handleLoginSuccess={handleLoginSuccess} />}
     </>
   );
 }
