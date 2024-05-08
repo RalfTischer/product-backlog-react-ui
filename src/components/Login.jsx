@@ -59,7 +59,7 @@ const Login = ({  db,
         </label>
       </div>
       <div className="login-cell">
-        <button type="submit">Login</button>
+        <button className="task-button" type="submit">Login</button>
         </div>
     </form>
   );
