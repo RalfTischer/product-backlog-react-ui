@@ -22,13 +22,13 @@ html {
 
 .nav-cell {
   display: table-cell;
-  padding: 0.4rem;
 }
 
 .nav-button {
   background-color: rgb(75, 70, 65);
   border: none;
   color: white;
+  margin-left: 0.4rem;
 }
 
 /**********/
