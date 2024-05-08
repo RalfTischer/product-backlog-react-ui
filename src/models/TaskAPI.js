@@ -116,7 +116,6 @@ class TaskAPI {
                 'Authorization': token
             },
         });
-
         // Delete list itself
         const responseList = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
             method: 'DELETE',
@@ -168,6 +167,14 @@ class TaskAPI {
         console.log("Login incorrect.");
         return data;
         }
+    }
+
+    async updateUsername(token, username) {
+        console.log("Updating username to", username);
+    }
+
+    async updatePassword(token, password) {
+        console.log("Updating password to", password);
     }
 }
 
