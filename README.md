@@ -24,12 +24,12 @@ Application code and `README.md` documentation are _work in progress_.
 
 # Links
 
-* Product Backlog UI on GitHub Pages: [https://ralftischer.github.io/product-backlog-react-ui/](https://ralftischer.github.io/product-backlog-react-ui/)
-* Product Backlog Backend GitHub (private) repository: [https://github.com/RalfTischer/product-backlog-flask-api](https://github.com/RalfTischer/product-backlog-flask-api)
+* Product Backlog UI on GitHub Pages: [https://coder-ratz.github.io/product-backlog-react-ui/](https://coder-ratz.github.io/product-backlog-react-ui/)
+* Product Backlog Backend GitHub (private) repository: [https://github.com/coder-ratz/product-backlog-flask-api](https://github.com/coder-ratz/product-backlog-flask-api)
 
 # Technical Background
 
-The [React app](https://ralftischer.github.io/product-backlog-react-ui/) calls a Flask API to access a simple SQLite database.
+The [React app](https://coder-ratz.github.io/product-backlog-react-ui/) calls a Flask API to access a simple SQLite database.
 
 ## React Components
 
