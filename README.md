@@ -29,7 +29,13 @@ Application code and `README.md` documentation are _work in progress_.
 
 # Technical Background
 
-The [React app](https://coder-ratz.github.io/product-backlog-react-ui/) calls a Flask API to access a simple SQLite database.
+The React app acts as user interface (UI) to access a database a calls by an API backend. 
+
+The app requires a login with username and password. If the login at the API try successful, a JWT token is returned, stored and sent at each API request. 
+
+After login, the user chooses between different lists assigned to her or his name. Existing lists can be edited and new can be created. 
+
+Exchange list consist tasks with sine properties which can be edited. 
 
 ## React Components
 
