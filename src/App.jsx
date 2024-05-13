@@ -57,9 +57,15 @@ function App() {
     // User login
     console.log("handleLogin: Reveived authToken", authToken);
     if (authToken) {
-      console.log("handleLogin: Login successful");
-      setAccessStatus(LOGGED_IN);
-      setToken(authToken);
+      if (authToken === "LOGIN_REQUIRED") {
+        console.log("handleLogin: New Login required");
+        setAccessStatus(NOT_LOGGED_IN);
+        setToken(null);
+      } else {
+        console.log("handleLogin: Login successful");
+        setAccessStatus(LOGGED_IN);
+        setToken(authToken);
+      }
     } else {
       console.log("handleLogin: Login unsuccessful");
       setAccessStatus(LOGIN_ERROR);

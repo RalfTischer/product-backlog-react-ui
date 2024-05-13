@@ -22,13 +22,13 @@ const ProfileEdit = ({  db,
       if (username) {
         if (username.length > 3) {
           console.log("Change username to", username);
-          await db.updateUsername(token, username)
+          await db.updateProfile(token, {username: username})
         }
       }
     } else if (change_type === CHANGE_PASSWORD) {
       // Change password
       if ((newPassword1 === newPassword2) && (newPassword1 !== "")) {
-        await db.updatePassword(token, newPassword1)
+        await db.updateProfile(token, {password: newPassword1})
         console.log("Change password to", newPassword1);
       } else {
         console.log("Invalid password");
@@ -36,6 +36,8 @@ const ProfileEdit = ({  db,
         setNewPassword2('');
       }
     };
+    // Log off
+    handleLoginSuccess("LOGIN_REQUIRED");
   };
 
   useEffect(() => {

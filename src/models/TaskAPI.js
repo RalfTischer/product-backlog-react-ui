@@ -82,6 +82,34 @@ class TaskAPI {
         return response.json();
     }
 
+    async updateProfile(token, data) {
+        // Update user profile
+        const response = await fetch(`${this.baseURL}/login`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            body: JSON.stringify(data)
+        });
+
+        if ("username" in data) {
+            // Update related lists
+            const new_username = data.username;
+            
+            const response_lists = await fetch(`${this.baseURL}/lists`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+                body: JSON.stringify({username: new_username})
+            });
+        }
+
+        return response.json();
+    }
+
     async updateList(token, id, data) {
         const response = await fetch(`${this.baseURL}/lists?rowid=${id}`, {
             method: 'PUT',
