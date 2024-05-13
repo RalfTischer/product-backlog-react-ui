@@ -29,7 +29,7 @@ Application code and `README.md` documentation are _work in progress_.
 
 # Technical Background
 
-The React app acts as user interface (UI) to access a database a calls by an API backend. 
+The React app acts as user interface (UI) to interact with an API. This backend manages the full communication with the external database. 
 
 The app requires a login with username and password. If the login at the API try successful, a JWT token is returned, stored and sent at each API request. 
 
