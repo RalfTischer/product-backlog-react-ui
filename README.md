@@ -1,6 +1,6 @@
 # Product Backlog React UI
 
-By `coder-ratz` | Ralf Tischer, 2023-2024.
+`coder-ratz` | Ralf Tischer, 2023-2024.
 
 Javascript React user interface to work with simplified product backlogs. 
 
