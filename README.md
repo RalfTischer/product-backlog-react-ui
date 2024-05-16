@@ -2,8 +2,7 @@
 
 By `coder-ratz` | Ralf Tischer, 2023-2024.
 
-React user interface to work with simplified product backlogs.
-Application code and `README.md` documentation are _work in progress_.
+Javascript React user interface to work with simplified product backlogs. 
 
 <!-- MD-TOC START LEVEL 2 -->
 
@@ -29,18 +28,17 @@ Application code and `README.md` documentation are _work in progress_.
 
 # Technical Background
 
-The React app acts as user interface (UI) to interact with an API. This backend manages the full communication with the external database. 
+The React app acts as user interface (UI) to allow user interaction with an API. This backend manages the full communication with the external database. 
 
-The app requires a login with username and password. If the login at the API try successful, a JWT token is returned, stored and sent at each API request. 
+To access the data, a login with username and password is required. If the login at the API try successful, a JWT token is returned, stored and sent at each API request. 
 
 After login, the user chooses between different lists assigned to her or his name. Existing lists can be edited and new can be created. 
 
-Exchange list consist tasks with sine properties which can be edited. 
+Exchange list consist tasks with simple properties which can be edited. 
 
 ## React Components
 
 ![Charts of Components](./docu/ProductBacklogComponents.png)
-
 
 # Available Scripts
 
@@ -63,7 +61,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Deploy project tp GitHub Pages to the `gh-pages` branch of this repository.
 
-
  ```bash
  $ npm run deploy -- -m "Deploy React app to GitHub Pages"
  ```
@@ -85,5 +82,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 # Author
-Ralf Tischer
+`coder-ratz` | Ralf Tischer, 
 2023-2024
