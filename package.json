@@ -2,7 +2,7 @@
   "name": "product-backlog-react-ui",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://ralftischer.github.io/product-backlog-react-ui",
+  "homepage": "https://coder-ratz.github.io/product-backlog-react-ui",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
