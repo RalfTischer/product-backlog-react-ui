@@ -1,6 +1,6 @@
 # Product Backlog React UI
 
-`coder-ratz` | Ralf Tischer, 2023-2024.
+| Ralf Tischer, 2023-2024.
 
 Javascript React user interface to work with simplified product backlogs. 
 
@@ -23,8 +23,8 @@ Javascript React user interface to work with simplified product backlogs.
 
 # Links
 
-* Product Backlog UI on GitHub Pages: [https://coder-ratz.github.io/product-backlog-react-ui/](https://coder-ratz.github.io/product-backlog-react-ui/)
-* Product Backlog Backend GitHub (private) repository: [https://github.com/coder-ratz/product-backlog-flask-api](https://github.com/coder-ratz/product-backlog-flask-api)
+* Product Backlog UI on GitHub Pages: [https://ralf-tischer.github.io/product-backlog-react-ui/](https://ralf-tischer.github.io/product-backlog-react-ui/)
+* Product Backlog Backend GitHub (private) repository: [https://github.com/ralf-tischer/product-backlog-flask-api](https://github.com/ralf-tischer/product-backlog-flask-api)
 
 # Technical Background
 
@@ -82,5 +82,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 # Author
-`coder-ratz` | Ralf Tischer, 
+| Ralf Tischer, 
 2023-2024
